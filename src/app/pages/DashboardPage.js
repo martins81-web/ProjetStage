@@ -1,8 +1,6 @@
-import React from "react";
-import {
-  Dashboard
-} from "../../_metronic/_partials";
+import React from 'react';
+
 
 export function DashboardPage() {
-  return <Dashboard />;
+  return <></>;
 }

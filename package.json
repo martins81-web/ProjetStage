@@ -87,9 +87,10 @@
         "yup": "0.29.0"
     },
     "devDependencies": {
+        "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining": "^7.13.12",
         "copyfiles": "2.1.1",
-        "sass": "1.32.8",
         "prettier": "1.19.1",
+        "sass": "1.32.8",
         "serve": "11.2.0",
         "webpack-cli": "3.3.11",
         "webpack-messages": "2.0.4",

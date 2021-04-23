@@ -25,7 +25,7 @@ export default function BasePage() {
         <ContentRoute path="/builder" component={BuilderPage} />
         <ContentRoute path="/my-page" component={MyPage} />
   
-        <Redirect to="error/error-v1" />
+        {/* <Redirect to="/error/error-v1" /> */}
       </Switch>
     </Suspense>
   );

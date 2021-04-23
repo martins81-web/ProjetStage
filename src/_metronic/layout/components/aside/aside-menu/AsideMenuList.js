@@ -50,7 +50,12 @@ export function AsideMenuList({ layoutProps }) {
                 src={toAbsoluteUrl("/media/svg/icons/Layout/Layout-top-panel-3.svg")}
               />
             </span>
+            {location.pathname.includes('groupes') ?
+            <span className="menu-text">Changer de groupe</span>
+            :
             <span className="menu-text">Sélectionner un groupe</span>
+          }
+
             <i className="menu-arrow" />
           </NavLink>
           <div className="menu-submenu ">
@@ -95,6 +100,100 @@ export function AsideMenuList({ layoutProps }) {
         </li>
         {/*end::1 Level*/}
 
+        {/* Custom */}
+        {/* begin::section */}
+        { location.pathname.includes('groupes') &&
+        <>
+        <li className="menu-section ">
+          <h4 className="menu-text" style={{color:'white'}}>Groupe: {'xxxx'}</h4>
+          <i className="menu-icon flaticon-more-v2"></i>
+        </li>
+
+        <li
+        className={`menu-item ${getMenuItemActive("/groupes/groupexxxx/stagiaires", false)}`}
+        aria-haspopup="true"
+        >
+        <NavLink className="menu-link" to="/groupes/groupexxxx/stagiaires">
+          <span className="svg-icon menu-icon">
+            <SVG src={toAbsoluteUrl("/media/svg/icons/Communication/Group.svg")} />
+          </span>
+          <span className="menu-text">Stagiaires</span>
+        </NavLink>
+        </li>
+
+        <li
+        className={`menu-item ${getMenuItemActive("/groupes/groupexxxx/tuteurs", false)}`}
+        aria-haspopup="true"
+        >
+        <NavLink className="menu-link" to="/groupes/groupexxxx/tuteurs">
+          <span className="svg-icon menu-icon">
+            <SVG src={toAbsoluteUrl("/media/svg/icons/Communication/Shield-user.svg")} />
+          </span>
+          <span className="menu-text">Tuteurs</span>
+        </NavLink>
+        </li>
+
+        <li
+        className={`menu-item ${getMenuItemActive("/groupes/groupexxxx/groupeEntreprises", false)}`}
+        aria-haspopup="true"
+        >
+        <NavLink className="menu-link" to="/groupes/groupexxxx/groupeEntreprises">
+          <span className="svg-icon menu-icon">
+            <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Sketch.svg")} />
+          </span>
+          <span className="menu-text">Entreprises</span>
+        </NavLink>
+        </li>
+
+        <li
+        className={`menu-item ${getMenuItemActive("/groupes/groupexxxx/evaluations", false)}`}
+        aria-haspopup="true"
+        >
+        <NavLink className="menu-link" to="/groupes/groupexxxx/evaluations">
+          <span className="svg-icon menu-icon">
+            <SVG src={toAbsoluteUrl("/media/svg/icons/Communication/Write.svg")} />
+          </span>
+          <span className="menu-text">Évaluations</span>
+        </NavLink>
+        </li>
+
+        <li
+        className={`menu-item ${getMenuItemActive("/groupes/groupexxxx/raportsDeStage", false)}`}
+        aria-haspopup="true"
+        >
+        <NavLink className="menu-link" to="/groupes/groupexxxx/raportsDeStage">
+          <span className="svg-icon menu-icon">
+            <SVG src={toAbsoluteUrl("/media/svg/icons/General/Clipboard.svg")} />
+          </span>
+          <span className="menu-text">Rapports de stage</span>
+        </NavLink>
+        </li>
+
+        <li
+        className={`menu-item ${getMenuItemActive("/groupes/groupexxxx/parametresDuStage", false)}`}
+        aria-haspopup="true"
+        >
+        <NavLink className="menu-link" to="/groupes/groupexxxx/parametresDuStage">
+          <span className="svg-icon menu-icon">
+            <SVG src={toAbsoluteUrl("/media/svg/icons/General/Settings-2.svg")} />
+          </span>
+          <span className="menu-text">Paramètres du stage</span>
+        </NavLink>
+        </li>
+
+        </>
+        
+        
+        }
+
+         
+      
+       
+
+
+        {/* end:: section */}
+
+      
 
 
        
@@ -119,7 +218,7 @@ export function AsideMenuList({ layoutProps }) {
           <NavLink className="menu-link menu-toggle" to="/calendrier">
             <span className="svg-icon menu-icon">
               <SVG
-                src={toAbsoluteUrl("/media/svg/icons/Code/Error-circle.svg")}
+                src={toAbsoluteUrl("/media/svg/icons/Design/Adjust.svg")}
               />
             </span>
             <span className="menu-text">Calendrier</span>
@@ -166,7 +265,7 @@ export function AsideMenuList({ layoutProps }) {
           <NavLink className="menu-link menu-toggle" to="/taches">
             <span className="svg-icon menu-icon">
               <SVG
-                src={toAbsoluteUrl("/media/svg/icons/Code/Error-circle.svg")}
+                src={toAbsoluteUrl("/media/svg/icons/Communication/Clipboard-list.svg")}
               />
             </span>
             <span className="menu-text">Tâches</span>
@@ -207,7 +306,7 @@ export function AsideMenuList({ layoutProps }) {
         >
           <NavLink className="menu-link" to="/entraide">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Home/Home.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Eraser.svg")} />
             </span>
             <span className="menu-text">Entraide</span>
           </NavLink>
@@ -227,7 +326,7 @@ export function AsideMenuList({ layoutProps }) {
           <NavLink className="menu-link menu-toggle" to="/entreprise">
             <span className="svg-icon menu-icon">
               <SVG
-                src={toAbsoluteUrl("/media/svg/icons/Code/Error-circle.svg")}
+                src={toAbsoluteUrl("/media/svg/icons/Text/Bullet-list.svg")}
               />
             </span>
             <span className="menu-text">Entreprises</span>
@@ -282,7 +381,7 @@ export function AsideMenuList({ layoutProps }) {
           <NavLink className="menu-link menu-toggle" to="/stages">
             <span className="svg-icon menu-icon">
               <SVG
-                src={toAbsoluteUrl("/media/svg/icons/Code/Error-circle.svg")}
+                src={toAbsoluteUrl("/media/svg/icons/Shopping/Chart-bar1.svg")}
               />
             </span>
             <span className="menu-text">Stages</span>
@@ -333,7 +432,7 @@ export function AsideMenuList({ layoutProps }) {
         >
           <NavLink className="menu-link" to="/utilisateurs">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Home/Home.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Communication/Adress-book2.svg")} />
             </span>
             <span className="menu-text">Utilisateurs</span>
           </NavLink>
@@ -347,7 +446,7 @@ export function AsideMenuList({ layoutProps }) {
         >
           <NavLink className="menu-link" to="/programmes">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Home/Home.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Polygon.svg")} />
             </span>
             <span className="menu-text">Programmes</span>
           </NavLink>
@@ -370,7 +469,7 @@ export function AsideMenuList({ layoutProps }) {
         >
           <NavLink className="menu-link" to="/preferences">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Home/Home.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/General/User.svg")} />
             </span>
             <span className="menu-text">Préférences</span>
           </NavLink>
@@ -385,7 +484,7 @@ export function AsideMenuList({ layoutProps }) {
         >
           <NavLink className="menu-link" to="/outils">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Home/Home.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/General/Settings-1.svg")} />
             </span>
             <span className="menu-text">Outils</span>
           </NavLink>
@@ -399,7 +498,7 @@ export function AsideMenuList({ layoutProps }) {
         >
           <NavLink className="menu-link" to="/quitter">
             <span className="svg-icon menu-icon">
-              <SVG src={toAbsoluteUrl("/media/svg/icons/Home/Home.svg")} />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Home/Door-open.svg")} />
             </span>
             <span className="menu-text">Quitter</span>
           </NavLink>

@@ -1,5 +1,7 @@
-import React, {useMemo} from "react";
-import {useHtmlClassService} from "../../_core/MetronicLayout";
+import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
+
+import { useHtmlClassService } from '../../_core/MetronicLayout';
 
 export function Footer() {
   const today = new Date().getFullYear();
@@ -23,39 +25,32 @@ export function Footer() {
         <div className="text-dark order-2 order-md-1">
           <span className="text-muted font-weight-bold mr-2">{today.toString()}</span> &copy;{" "}
           <a
-            href="http://keenthemes.com/metronic"
+            href="https://charlesetiennev.github.io/AEC_Front_End2/marcheEtProfession2/portfolio/index.html"
             target="_blank"
             rel="noopener noreferrer"
             className="text-dark-75 text-hover-primary"
           >
-            Keenthemes
+            Charles-Étienne
+          </a>
+          <span
+          >
+           {'  -  '}
+          </span>
+          <a
+            href="http://ericmartins.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-dark-75 text-hover-primary"
+          >
+            Eric Martins
           </a>
         </div>
         <div className="nav nav-dark order-1 order-md-2">
-          <a
-            href="http://keenthemes.com/metronic"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link pr-3 pl-0"
+          <Link
+           to='/support'
           >
-            About
-          </a>
-          <a
-            href="http://keenthemes.com/metronic"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link px-3"
-          >
-            Team
-          </a>
-          <a
-            href="http://keenthemes.com/metronic"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link pl-3 pr-0"
-          >
-            Contact
-          </a>
+            Support
+          </Link>
         </div>
       </div>
     </div>

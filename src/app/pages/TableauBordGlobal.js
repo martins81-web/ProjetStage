@@ -36,7 +36,7 @@ const TableauBordGlobal =()=>{
     return (
         <Wrapper>
             <Grid container>
-                <Grid item xs={9} className='paddingSection'>
+                <Grid item xs={12} sm={12} md={12} lg={9} className='paddingSection'>
                     <Grid container>
                         <Grid item xs={12} className='marginSections'>
                             <Grid container  justify='space-between'>
@@ -47,7 +47,7 @@ const TableauBordGlobal =()=>{
                         <Grid item xs className='marginSections'>
                             <Grid container spacing={5}>
                                 {[1,2,3,4,5,6].map( item=>
-                                    <Grid item xs={12} sm={6} md={6} lg={4}>
+                                    <Grid item xs={12} sm={6} md={4} lg={4}>
                                         <CardGroupe groupe={groupe}/>
                                     </Grid>
                                 )}
@@ -91,7 +91,7 @@ const TableauBordGlobal =()=>{
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={3} className='paddingSection bgArchives'>
+                <Grid item xs={12} sm={12} md={12} lg={3} className='paddingArchives bgArchives'>
                     <Grid container>
                         <Grid xs={12}>
                             <h1 className='text-muted'>Archives</h1>
@@ -224,11 +224,16 @@ const Wrapper = styled.div`
 .paddingSection{
     padding: 40px;
 }
+
+.paddingArchives{
+    padding: 20px;
+}
+
 .bgArchives{
     background-color: white;
 }
 .marginSections{
-    margin-top: 50px
+    margin-top: 40px
 }
 .buttonMessage{
     margin-top: 10px

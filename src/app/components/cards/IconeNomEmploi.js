@@ -6,7 +6,7 @@ export const IconeNomEmploi = () => {
       <Image alt='icone' className='pl-5' />
       <div>
         <h5 className='font-weight-bold'>Ginnette Reanaud</h5>
-        <p className='text-secondary'>services solutions</p>
+        <p className='text-muted'>services solutions</p>
       </div>
     </>
   );

@@ -11,27 +11,27 @@ export const ApercuStagiaires = () => {
       </Row>
       <Row className='d-flex justify-content-between'>
         <IconeNomEmploi />
-        <StarsIcon className=' mt-0 text-success' fontSize='large' />
+        <StarsIcon className=' mt-0 text-success mr-5' fontSize='large' />
       </Row>
       <Row className='d-flex justify-content-between'>
         <IconeNomEmploi />
-        <StarsIcon className=' mt-0 text-danger' fontSize='large' />
+        <StarsIcon className=' mt-0 text-danger mr-5' fontSize='large' />
       </Row>
       <Row className='d-flex justify-content-between'>
         <IconeNomEmploi />
-        <StarsIcon className=' mt-0 text-warning' fontSize='large' />
+        <StarsIcon className=' mt-0 text-warning mr-5' fontSize='large' />
       </Row>
       <Row className='d-flex justify-content-between'>
         <IconeNomEmploi />
-        <StarsIcon className=' mt-0 text-warning' fontSize='large' />
+        <StarsIcon className=' mt-0 text-warning mr-5' fontSize='large' />
       </Row>
       <Row className='d-flex justify-content-between'>
         <IconeNomEmploi />
-        <StarsIcon className=' mt-0 text-success' fontSize='large' />
+        <StarsIcon className=' mt-0 text-success mr-5' fontSize='large' />
       </Row>
       <Row className='d-flex justify-content-between'>
         <IconeNomEmploi />
-        <StarsIcon className=' mt-0 text-danger' fontSize='large' />
+        <StarsIcon className=' mt-0 text-danger mr-5' fontSize='large' />
       </Row>
     </Col>
   );

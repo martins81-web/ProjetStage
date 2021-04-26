@@ -1,5 +1,7 @@
 import React from 'react';
 import SVG from 'react-inlinesvg';
+import styled from 'styled-components';
+import { Button } from 'react-bootstrap';
 import { toAbsoluteUrl } from '../../../_metronic/_helpers';
 
 const avatars = [
@@ -55,25 +57,34 @@ const avatars = [
   '050-girl-26',
 ];
 
-export const IconeNomEmploi = () => {
+export const CardTuteur = () => {
   return (
-    <div className='d-flex'>
-      <div className='symbol symbol-40 symbol-light-success mx-5'>
-        <span className='symbol-label'>
+    <>
+      <Wrapper className='px-4 d-inline mr-3 mb-5 bg-white d-flex rounded'>
+        <div className='py-3'>
+          <h5 className='font-weight-bold mb-0'>Ginnette Reanaud</h5>
+
+          <p className='text-muted mb-0'>services solutions</p>
+
+          <Button variant='info'>Contactez</Button>
+        </div>
+        <div className=''>
           <SVG
-            className='h-75 align-self-end'
+            className='h-100 pt-3
+            '
             src={toAbsoluteUrl(
               '/media/svg/avatars/' +
                 avatars[Math.floor(Math.random() * 50) + 1] +
                 '.svg'
             )}
           ></SVG>
-        </span>
-      </div>
-      <div>
-        <h5 className='font-weight-bold'>Ginnette Reanaud</h5>
-        <p className='text-muted'>services solutions</p>
-      </div>
-    </div>
+        </div>
+      </Wrapper>
+    </>
   );
 };
+const Wrapper = styled.div`
+  div {
+    background-color: white;
+  }
+`;

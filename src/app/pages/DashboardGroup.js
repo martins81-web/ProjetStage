@@ -4,7 +4,9 @@ import { InformationsGroupe } from '../components/InformationsGroupe';
 import { ApercuStagiaires } from '../components/ApercuStagiaires';
 import { ActivitesRecentes } from '../components/ActivitesRecentes';
 import { CommunauteDaide } from '../components/CommunauteDaide/CommunauteDaide';
+import { CardTuteur } from '../components/cards/CardTuteur';
 import { GraphiqueSanteGroupe } from '../components/graphiques/GraphiqueSanteGroupe';
+import { GraphiqueTaches } from '../components/graphiques/graphiqueTaches';
 import { Row, Col, Card, Image } from 'react-bootstrap';
 export const DashboardGroup = () => {
   const suhbeader = useSubheader();
@@ -12,16 +14,16 @@ export const DashboardGroup = () => {
   return (
     <>
       <Row>
-        <Col xs='3'>
+        <Col xs='2'>
           <InformationsGroupe />
           <ApercuStagiaires />
         </Col>
-        <Col xs='9'>
+        <Col xs='10'>
           {/* Section message important */}
           <Row className='pr-2 my-5'>
             <Card className='bg-white d-flex'>
               <Card.Body className='d-flex'>
-                <Image alt='test' />
+                <Image alt='Image a definir' />
                 <Card.Text>
                   <h1 className='text-muted text-uppercase'>
                     message important
@@ -47,6 +49,7 @@ export const DashboardGroup = () => {
                 </Col>
                 <Col xs='6' className='pr-0'>
                   <GraphiqueSanteGroupe />
+                  {/* <GraphiqueTaches /> */}
                 </Col>
               </Row>
               <Row>
@@ -58,7 +61,15 @@ export const DashboardGroup = () => {
               <ActivitesRecentes className='h-100' />
             </Col>
           </Row>
-          <Row>Sections Tuteurs</Row>
+          {/* Tuteurs */}
+          <Row>
+            <Col xs='12' className='px-0 py-5'>
+              <h1 className='text-muted'>Tuteurs du groupes : 1038</h1>
+            </Col>
+            <CardTuteur />
+            <CardTuteur />
+            <CardTuteur />
+          </Row>
         </Col>
       </Row>
     </>

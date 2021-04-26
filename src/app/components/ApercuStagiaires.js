@@ -5,7 +5,7 @@ import StarsIcon from '@material-ui/icons/Stars';
 export const ApercuStagiaires = () => {
   return (
     <Col className='bg-white py-4'>
-      <Row className='d-flex justify-content-between px-5'>
+      <Row className='d-flex justify-content-between p-5'>
         <h4 className='font-weight-bolder'>Stagiaires</h4>
         <Button variant='light-info font-weight-bolder '>Ajouter</Button>
       </Row>

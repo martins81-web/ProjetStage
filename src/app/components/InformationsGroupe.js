@@ -1,8 +1,10 @@
 import React from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+import styled from 'styled-components';
+
 export const InformationsGroupe = () => {
   return (
-    <div className='bg-danger px-3 pt-2 text-white'>
+    <Wrapper className='bg-danger px-3 pt-2 text-white'>
       <DropdownButton
         id='dropdown-item-button'
         title='Changer de groupe'
@@ -30,6 +32,14 @@ export const InformationsGroupe = () => {
         Type: <span>Distance</span>
       </p>
       <h1 className='text-right mb-0'>#1028</h1>
-    </div>
+    </Wrapper>
   );
 };
+const Wrapper = styled.div`
+  p {
+    font-weight: bold;
+  }
+  span {
+    font-weight: normal;
+  }
+`;

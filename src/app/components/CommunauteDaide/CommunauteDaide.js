@@ -1,10 +1,14 @@
 import React from 'react';
-import { Col, Row, Card, Button, Dropdown, Image } from 'react-bootstrap';
-import TextField from '@material-ui/core/TextField';
+import { Col, Row, Card, Button, Dropdown } from 'react-bootstrap';
+import SVG from 'react-inlinesvg';
+import { toAbsoluteUrl } from '../../../_metronic/_helpers';
+import { DropdownCustomToggler } from '../../../_metronic/_partials/dropdowns';
+
+import Input from '@material-ui/core/Input';
 export const CommunauteDaide = ({ className }) => {
   return (
     <>
-      <Col xs='12' className='px-0 py-5 d-flex justify-content-between'>
+      <Col xs='12' className='px-0 py-5 d-flex justify-content-between '>
         <h1 className='text-muted'>Communaute d'aide</h1>
         <Button variant='light-info'>Voir tous les messages</Button>
       </Col>
@@ -14,26 +18,42 @@ export const CommunauteDaide = ({ className }) => {
           <Card.Title>
             <Card.Header className='d-flex justify-content-between border-bottom-0'>
               <div xs='10' className='d-flex'>
-                <img alt='test' />
+                <div className='symbol symbol-40 symbol-light mr-5'>
+                  <span className='symbol-label'>
+                    <SVG
+                      className='h-75 align-self-end'
+                      src={toAbsoluteUrl('/media/svg/avatars/011-boy-5.svg')}
+                    ></SVG>
+                  </span>
+                </div>
                 <h3 className='card-title align-items-start flex-column'>
                   <span className='font-weight-bolder text-dark'>
                     Sophie Tremblay
                   </span>
-                  <br />
+                  <br className='border-light' />
                   <span className='text-muted mt-3 font-weight-bold font-size-sm'>
                     Hier a 18:09
                   </span>
                 </h3>
               </div>
               <div xs='2' className=''>
-                <p>Dropdown</p>
+                <Dropdown className='dropdown-inline' alignRight>
+                  <Dropdown.Toggle
+                    id='dropdown-toggle-top'
+                    as={DropdownCustomToggler}
+                  >
+                    <i className='ki ki-bold-more-hor' />
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className='dropdown-menu dropdown-menu-sm dropdown-menu-right'></Dropdown.Menu>
+                </Dropdown>
               </div>
             </Card.Header>
           </Card.Title>
           <Card.Body>
             {/* Reste a defenir ce qui doit etre la  */}
             <Card.Text>
-              <TextField
+              <hr />
+              <Input
                 fullWidth
                 multiline
                 disableUnderline={true}

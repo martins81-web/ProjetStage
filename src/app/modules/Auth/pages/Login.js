@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { connect } from "react-redux";
-import { FormattedMessage, injectIntl } from "react-intl";
-import * as auth from "../_redux/authRedux";
-import { login } from "../_redux/authCrud";
+import { useFormik } from 'formik';
+import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { FormattedMessage, injectIntl } from 'react-intl';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
+
+import { login } from '../_redux/authCrud';
+import * as auth from '../_redux/authRedux';
 
 /*
   INTL (i18n) docs:
@@ -94,10 +96,10 @@ function Login(props) {
       {/* begin::Head */}
       <div className="text-center mb-10 mb-lg-20">
         <h3 className="font-size-h1">
-          <FormattedMessage id="AUTH.LOGIN.TITLE" />
+          Identification
         </h3>
         <p className="text-muted font-weight-bold">
-          Enter your username and password
+          Entrez votre courriel et votre mot de passe
         </p>
       </div>
       {/* end::Head */}
@@ -107,7 +109,7 @@ function Login(props) {
         onSubmit={formik.handleSubmit}
         className="form fv-plugins-bootstrap fv-plugins-framework"
       >
-        {formik.status ? (
+       {/*  {formik.status ? (
           <div className="mb-10 alert alert-custom alert-light-danger alert-dismissible">
             <div className="alert-text font-weight-bold">{formik.status}</div>
           </div>
@@ -118,11 +120,11 @@ function Login(props) {
               <strong>demo</strong> to continue.
             </div>
           </div>
-        )}
+        )} */}
 
         <div className="form-group fv-plugins-icon-container">
           <input
-            placeholder="Email"
+            placeholder="Courriel"
             type="email"
             className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
               "email"
@@ -138,7 +140,7 @@ function Login(props) {
         </div>
         <div className="form-group fv-plugins-icon-container">
           <input
-            placeholder="Password"
+            placeholder="Mot de passe"
             type="password"
             className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
               "password"
@@ -158,17 +160,17 @@ function Login(props) {
             className="text-dark-50 text-hover-primary my-3 mr-2"
             id="kt_login_forgot"
           >
-            <FormattedMessage id="AUTH.GENERAL.FORGOT_BUTTON" />
+            <b>Mot de passe oublié</b>
           </Link>
-          <button
+          <Button
+            className="btn btn-dark font-weight-bold px-9 py-4 my-3"
             id="kt_login_signin_submit"
             type="submit"
             disabled={formik.isSubmitting}
-            className={`btn btn-primary font-weight-bold px-9 py-4 my-3`}
           >
-            <span>Sign In</span>
+            <span>C'est parti</span>
             {loading && <span className="ml-3 spinner spinner-white"></span>}
-          </button>
+          </Button>
         </div>
       </form>
       {/*end::Form*/}

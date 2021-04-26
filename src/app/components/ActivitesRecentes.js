@@ -1,6 +1,7 @@
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Dropdown } from 'react-bootstrap';
+import { DropdownCustomToggler } from '../../_metronic/_partials/dropdowns';
 
 export function ActivitesRecentes({ className }) {
   return (
@@ -19,9 +20,8 @@ export function ActivitesRecentes({ className }) {
           <div className='card-toolbar'>
             <Dropdown className='dropdown-inline' alignRight>
               <Dropdown.Toggle
-                variant='transparent'
                 id='dropdown-toggle-top'
-                className='btn btn-clean btn-hover-light-primary btn-sm btn-icon'
+                as={DropdownCustomToggler}
               >
                 <i className='ki ki-bold-more-hor' />
               </Dropdown.Toggle>

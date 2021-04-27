@@ -5,6 +5,7 @@ import { ContentRoute, LayoutSplashScreen } from '../_metronic/layout';
 import { BuilderPage } from './pages/BuilderPage';
 import { DashboardGroup } from './pages/DashboardGroup';
 import { DashboardPage } from './pages/DashboardPage';
+import { ListeStagiaires } from './pages/ListeStagiaires';
 import { MyPage } from './pages/MyPage';
 
 export default function BasePage() {
@@ -21,6 +22,7 @@ export default function BasePage() {
           <Redirect exact from='/' to='/dashboard' />
         }
         <ContentRoute path='/dashboard' component={DashboardPage} />
+        <ContentRoute path='/liste-stagiaires' component={ListeStagiaires} />
         <ContentRoute path='/builder' component={BuilderPage} />
         <ContentRoute path='/my-page' component={MyPage} />
         <ContentRoute

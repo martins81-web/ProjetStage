@@ -97,19 +97,15 @@ const TableauBordGlobal =()=>{
                             <h1 className='text-muted'>Archives</h1>
                         </Grid>
                         <Grid xs={12}>
-                            <Grid container spacing={10}>
-                                <Grid item xs={12}>
-                                    <Grid container justify='space-between'>
-                                        <Grid item>
+                            <Grid container direction='column'>
+                                <Grid item xs={12} >
+                                    <Grid container justify='space-between' className='mt-5'>
                                             <h5><b>Par session</b></h5>
-                                        </Grid>
-                                        <Grid item>
                                             <SVG src={toAbsoluteUrl("/media/svg/icons/Layout/Layout-vertical.svg")} />
-                                        </Grid>
                                     </Grid>
-                                    <Grid container spacing={1}>
+                                    <Grid container>
                                         {sessions.map(session=>
-                                        <Grid item xs={6}>
+                                        <Grid item xs={6} className='mb-1'>
                                             <span className="symbol circle symbol-25 symbol-light-success mr-2">
                                                 <span className="symbol-label">
                                                     <span className="svg-icon svg-icon-sm svg-icon-success ">
@@ -123,7 +119,7 @@ const TableauBordGlobal =()=>{
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Grid container justify='space-between'>
+                                    <Grid container justify='space-between' className='mt-10'>
                                         <Grid item>
                                             <h5><b>Par programme</b></h5>
                                         </Grid>

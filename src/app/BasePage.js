@@ -7,6 +7,7 @@ import { DashboardGroup } from './pages/DashboardGroup';
 import { DashboardPage } from './pages/DashboardPage';
 import { ListeStagiaires } from './pages/ListeStagiaires';
 import { ListeTachesEtudiant } from './pages/ListeTachesEtudiant';
+import { Tuteurs } from './pages/Tuteurs';
 import { MyPage } from './pages/MyPage';
 
 export default function BasePage() {
@@ -34,6 +35,8 @@ export default function BasePage() {
           path='/liste-taches-etudiant'
           component={ListeTachesEtudiant}
         />
+
+        <ContentRoute path='/tuteurs' component={Tuteurs} />
         {/* <Redirect to="/error/error-v1" /> */}
       </Switch>
     </Suspense>

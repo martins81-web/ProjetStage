@@ -4,7 +4,7 @@ import { InformationsGroupe } from '../components/InformationsGroupe';
 import { TableauListeStagiaires } from '../components/TableauListeStagiaires';
 import { FiltreStagiaires } from '../components/FiltreStagiaires';
 
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 export const ListeStagiaires = () => {
   const suhbeader = useSubheader();
   suhbeader.setTitle('Liste des stagiaires');

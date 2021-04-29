@@ -6,7 +6,7 @@ import { ActivitesRecentes } from '../components/ActivitesRecentes';
 import { CommunauteDaide } from '../components/CommunauteDaide/CommunauteDaide';
 import { CardTuteur } from '../components/cards/CardTuteur';
 import { GraphiqueSanteGroupe } from '../components/graphiques/GraphiqueSanteGroupe';
-import { GraphiqueTaches } from '../components/graphiques/graphiqueTaches';
+import { GraphiqueTaches } from '../components/graphiques/GraphiqueTaches';
 import { Row, Col, Card, Image } from 'react-bootstrap';
 export const DashboardGroup = () => {
   const suhbeader = useSubheader();

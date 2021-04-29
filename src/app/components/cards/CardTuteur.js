@@ -70,7 +70,7 @@ export const CardTuteur = () => {
         </div>
         <div className=''>
           <SVG
-            className='h-100 pt-3
+            className='h-100 pt-3 profilSvg
             '
             src={toAbsoluteUrl(
               '/media/svg/avatars/' +

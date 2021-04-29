@@ -79,7 +79,7 @@ export function GraphiqueTaches({ className, symbolShape, baseColor }) {
         <div
           id="kt_stats_widget_11_chart"
           className="card-rounded-bottom bg-white"
-          style={{ height: "150px" }}
+          style={{ height: "150px" }} 
         ></div>
       </div>
     </div>

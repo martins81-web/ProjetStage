@@ -72,7 +72,7 @@ export function GraphiqueTaches({ className, symbolShape, baseColor }) {
               350 tâches
             </span>
             <span className="text-muted font-weight-bold mt-2">
-              Depuis le début du stage
+              Depuis le début du stage 
             </span>
           </div>
         </div>
@@ -80,7 +80,7 @@ export function GraphiqueTaches({ className, symbolShape, baseColor }) {
           id="kt_stats_widget_11_chart"
           className="card-rounded-bottom bg-white"
           style={{ height: "150px" }} 
-        ></div>
+        ></div> 
       </div>
     </div>
   );

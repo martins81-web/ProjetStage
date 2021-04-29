@@ -1,8 +1,5 @@
 import React from 'react';
-
 import { useSubheader } from '../../_metronic/layout';
-
-
 
 export const MyPage = () => {
   const suhbeader = useSubheader();
@@ -10,6 +7,7 @@ export const MyPage = () => {
 
   return (
     <>
+      <h1>test</h1>
     </>
   );
 };

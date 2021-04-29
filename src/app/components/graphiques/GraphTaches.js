@@ -7,7 +7,7 @@ import SVG from 'react-inlinesvg';
 import { toAbsoluteUrl } from '../../../_metronic/_helpers';
 import { useHtmlClassService } from '../../../_metronic/layout';
 
-export function GraphiqueSante({ className }) {
+export function GraphTaches ({ className, symbolShape, baseColor }) {
   const uiService = useHtmlClassService();
   const layoutProps = useMemo(() => {
     return {
@@ -23,43 +23,45 @@ export function GraphiqueSante({ className }) {
         uiService.config,
         "js.colors.gray.gray300"
       ),
-      colorsThemeBasePrimary: objectPath.get(
+      colorsThemeBaseSuccess: objectPath.get(
         uiService.config,
-        "js.colors.theme.base.primary"
+        `js.colors.theme.base.${baseColor}`
       ),
-      colorsThemeLightPrimary: objectPath.get(
+      colorsThemeLightSuccess: objectPath.get(
         uiService.config,
-        "js.colors.theme.light.primary"
+        `js.colors.theme.light.${baseColor}`
       ),
-      fontFamily: objectPath.get(uiService.config, "js.fontFamily")
+      fontFamily: objectPath.get(uiService.config, "js.fontFamily"),
     };
-  }, [uiService]);
+  }, [uiService, baseColor]);
 
   useEffect(() => {
-    const element = document.getElementById("kt_stats_widget_12_chart");
+    const element = document.getElementById("kt_stats_widget_11_chart");
 
     if (!element) {
       return;
     }
 
     const options = getChartOption(layoutProps);
-    const chartnewUsers = new ApexCharts(element, options);
-    chartnewUsers.render();
+    const chart = new ApexCharts(element, options);
+    chart.render();
     return function cleanUp() {
-      chartnewUsers.destroy();
+      chart.destroy();
     };
   }, [layoutProps]);
 
   return (
     <div className={`card card-custom ${className}`}>
-      <div className="card-body d-flex flex-column p-0">
+      <div className="card-body p-0">
         <div className="d-flex align-items-center justify-content-between card-spacer flex-grow-1">
-          <span className="symbol symbol-circle symbol-50 symbol-light-primary mr-2">
+          <span
+            className={`symbol ${symbolShape} symbol-50 symbol-light-${baseColor} mr-2`}
+          >
             <span className="symbol-label">
-              <span className="svg-icon svg-icon-xl svg-icon-primary">
+              <span className={`svg-icon svg-icon-xl svg-icon-${baseColor}`}>
                 <SVG
                   src={toAbsoluteUrl(
-                    "/media/svg/icons/Shopping/Cart3.svg"
+                    "/media/svg/icons/Layout/Layout-4-blocks.svg"
                   )}
                 ></SVG>
               </span>
@@ -67,74 +69,76 @@ export function GraphiqueSante({ className }) {
           </span>
           <div className="d-flex flex-column text-right">
             <span className="text-dark-75 font-weight-bolder font-size-h3">
-              Santé du groupe
+              350 tâches
             </span>
-            <span className="text-muted font-weight-bold mt-2">Les 7 derniers jours</span>
+            <span className="text-muted font-weight-bold mt-2">
+              Depuis le début du stage 
+            </span>
           </div>
         </div>
         <div
-          id="kt_stats_widget_12_chart"
+          id="kt_stats_widget_11_chart"
           className="card-rounded-bottom bg-white"
-          style={{ height: "150px" }}
-        ></div>
+          style={{ height: "150px" }} 
+        ></div> 
       </div>
     </div>
   );
 }
 
 function getChartOption(layoutProps) {
-  var options = {
+  const options = {
     series: [
       {
         name: "Net Profit",
-        data: [40, 40, 30, 30, 35, 35, 50]
-      }
+        data: [20, 20, 40, 40, 40, 18, 15],
+      },
     ],
     chart: {
       type: "area",
       height: 150,
       toolbar: {
-        show: false
+        show: false,
       },
       zoom: {
-        enabled: false
+        enabled: false,
       },
       sparkline: {
-        enabled: true
-      }
+        enabled: true,
+      },
     },
     plotOptions: {},
     legend: {
-      show: false
+      show: false,
     },
     dataLabels: {
-      enabled: false
+      enabled: false,
     },
     fill: {
       type: "solid",
-      opacity: 1
+      opacity: 1,
     },
     stroke: {
       curve: "smooth",
       show: true,
       width: 3,
-      colors: [layoutProps.colorsThemeBasePrimary]
+      colors: [layoutProps.colorsThemeBaseSuccess],
     },
     xaxis: {
       categories: ["Feb", "Mar", "Apr", "May", "Jun", "Aug", "Sep"],
       axisBorder: {
-        show: false
+        show: false,
       },
       axisTicks: {
-        show: false
+        show: false,
       },
       labels: {
         show: false,
         style: {
           colors: layoutProps.colorsGrayGray500,
           fontSize: "12px",
-          fontFamily: layoutProps.fontFamily
-        }
+          fontFamily: layoutProps.fontFamily,
+        },
       },
       crosshairs: {
         show: false,
@@ -142,8 +146,8 @@ function getChartOption(layoutProps) {
         stroke: {
           color: layoutProps.colorsGrayGray300,
           width: 1,
-          dashArray: 3
-        }
+          dashArray: 3,
+        },
       },
       tooltip: {
         enabled: true,
@@ -151,9 +155,9 @@ function getChartOption(layoutProps) {
         offsetY: 0,
         style: {
           fontSize: "12px",
-          fontFamily: layoutProps.fontFamily
-        }
-      }
+          fontFamily: layoutProps.fontFamily,
+        },
+      },
     },
     yaxis: {
       min: 0,
@@ -163,48 +167,48 @@ function getChartOption(layoutProps) {
         style: {
           colors: layoutProps.colorsGrayGray500,
           fontSize: "12px",
-          fontFamily: layoutProps.fontFamily
-        }
-      }
+          fontFamily: layoutProps.fontFamily,
+        },
+      },
     },
     states: {
       normal: {
         filter: {
           type: "none",
-          value: 0
-        }
+          value: 0,
+        },
       },
       hover: {
         filter: {
           type: "none",
-          value: 0
-        }
+          value: 0,
+        },
       },
       active: {
         allowMultipleDataPointsSelection: false,
         filter: {
           type: "none",
-          value: 0
-        }
-      }
+          value: 0,
+        },
+      },
     },
     tooltip: {
       style: {
         fontSize: "12px",
-        fontFamily: layoutProps.fontFamily
+        fontFamily: layoutProps.fontFamily,
       },
       y: {
         formatter: function(val) {
           return "$" + val + " thousands";
-        }
-      }
+        },
+      },
     },
-    colors: [layoutProps.colorsThemeLightPrimary],
+    colors: [layoutProps.colorsThemeLightSuccess],
     markers: {
-      colors: [layoutProps.colorsThemeLightPrimary],
-      strokeColor: [layoutProps.colorsThemeBasePrimary],
-      strokeWidth: 3
-    }
+      colors: [layoutProps.colorsThemeLightSuccess],
+      strokeColor: [layoutProps.colorsThemeBaseSuccess],
+      strokeWidth: 3,
+    },
   };
   return options;
 }

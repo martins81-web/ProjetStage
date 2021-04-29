@@ -1,7 +1,8 @@
-import React from 'react';
-import SVG from 'react-inlinesvg';
+import { Grid, TextField } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Button, Card, Image } from 'react-bootstrap';
 import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
+
 import { toAbsoluteUrl } from '../../../_metronic/_helpers';
 
 const avatars = [
@@ -58,33 +59,74 @@ const avatars = [
 ];
 
 export const CardTuteur = () => {
+  const [contacter, setContacter] = useState(false);
+  const [avatar, setAvatar] = useState(avatars[Math.floor(Math.random() * 50) + 1]);
   return (
-    <>
-      <Wrapper className='px-4 d-inline mr-3 mb-5 bg-white d-flex rounded'>
-        <div className='py-3'>
-          <h5 className='font-weight-bold mb-0'>Ginnette Reanaud</h5>
-
-          <p className='text-muted mb-0'>services solutions</p>
-
-          <Button variant='info'>Contactez</Button>
-        </div>
-        <div className=''>
-          <SVG
-            className='h-100 pt-3 profilSvg
-            '
-            src={toAbsoluteUrl(
-              '/media/svg/avatars/' +
-                avatars[Math.floor(Math.random() * 50) + 1] +
-                '.svg'
-            )}
-          ></SVG>
-        </div>
-      </Wrapper>
-    </>
+    <Wrapper>
+        <Card className='bg-white'>
+          <Card.Body className='p-0 m-0'>
+            <Grid container alignItems='flex-end'>
+              <Grid item xs={7} className='p-5'>
+                <Grid container spacing={1}>
+                  <Grid item>
+                    <h5 className='font-weight-bold mb-0'>Ginnette Reanaud</h5>
+                    <p className='text-muted mb-0'>Services solutions</p>
+                  </Grid>
+                  <Grid item><Button variant='info' className='btn-contacter' onClick={setContacter}>Contacter</Button></Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={5}>
+                <Grid container justify='center' >
+                  <span className="symbol circle symbol-100">
+                    <Image  
+                      src={toAbsoluteUrl(
+                        '/media/svg/avatars/' + avatar
+                           +
+                          '.svg'
+                      )}
+                    /> 
+                  </span>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Card.Body>
+          { contacter &&
+          <Card.Body className='p-5 m-0'>
+            <Grid container direction='column' spacing={1}>
+              <Grid item xs={12}>
+                <TextField
+                  id="filled-textarea"
+                  label="Message"
+                  multiline
+                  variant="filled"
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Grid container justify='flex-end' spacing={1}>
+                  <Grid item>
+                    <Button variant='primary' >
+                      Envoyer
+                    </Button>
+                  </Grid>
+                  <Grid item>
+                    <Button variant='danger' onClick={()=>setContacter(false)}>
+                      Annuler
+                    </Button>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Card.Body>
+          }
+        </Card>
+       
+    </Wrapper>
   );
 };
 const Wrapper = styled.div`
-  div {
-    background-color: white;
-  }
+ .btn-contacter{
+   border-radius: 15px
+ }
+
 `;

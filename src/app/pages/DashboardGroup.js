@@ -1,3 +1,4 @@
+import { Grid } from '@material-ui/core';
 import React from 'react';
 import { Card, Col, Image, Row } from 'react-bootstrap';
 
@@ -6,7 +7,7 @@ import { ActivitesRecentes } from '../components/ActivitesRecentes';
 import { ApercuStagiaires } from '../components/ApercuStagiaires';
 import { CardTuteur } from '../components/cards/CardTuteur';
 import { CommunauteDaide } from '../components/CommunauteDaide/CommunauteDaide';
-import { GraphiqueSanteGroupe } from '../components/graphiques/GraphiqueSanteGroupe';
+import { GraphiqueSante, GraphiqueTaches } from '../components/graphiques/';
 import { InformationsGroupe } from '../components/InformationsGroupe';
 
 export const DashboardGroup = () => {
@@ -14,14 +15,15 @@ export const DashboardGroup = () => {
   suhbeader.setTitle('Tableau de bord du groupe');
   return (
     <>
-      <Row>
-        <Col xs='2'>
+    <Grid container>
+      <Grid item xs={2}>
           <InformationsGroupe />
           <ApercuStagiaires />
-        </Col>
-        <Col xs='10'>
-          {/* Section message important */}
-          <Row className='pr-2 my-5'>
+      </Grid>
+      <Grid item xs={10}>
+        <Grid container className='p-5' direction='column'>
+          <Grid item xs={12}> 
+            {/* Section message important */}
             <Card className='bg-white d-flex'>
               <Card.Body className='d-flex'>
                 <Image alt='Image a definir' />
@@ -40,39 +42,54 @@ export const DashboardGroup = () => {
                 </Card.Text>
               </Card.Body>
             </Card>
-          </Row>
-          <Row className='pr-2'>
-            {/* Section graphiques et Communaute d'aide */}
-            <Col xs='8'>
-              <Row className='d-flex justify-content-between'>
-                <Col xs='6' className='pl-0'>
-                  <GraphiqueSanteGroupe />
-                </Col>
-                <Col xs='6' className='pr-0'>
-                  <GraphiqueSanteGroupe />
-                  {/* <GraphiqueTaches /> */}
-                </Col>
-              </Row>
-              <Row>
-                <CommunauteDaide />
-              </Row>
-            </Col>
-            {/* Timeline */}
-            <Col xs='4'>
-              <ActivitesRecentes className='h-100' />
-            </Col>
-          </Row>
-          {/* Tuteurs */}
-          <Row>
-            <Col xs='12' className='px-0 py-5'>
-              <h1 className='text-muted'>Tuteurs du groupes : 1038</h1>
-            </Col>
-            <CardTuteur />
-            <CardTuteur />
-            <CardTuteur />
-          </Row>
-        </Col>
-      </Row>
+          </Grid>
+          <Grid item xs={12}>
+            <Grid container> 
+              <Grid item xs={8}>
+                <Grid container spacing={2} className='pt-5 '>
+                  {/* Section graphiques et Communaute d'aide */}
+                  <Grid item xs={6}>
+                    <GraphiqueTaches
+                        className="card-stretch card-stretch-half gutter-b"
+                        symbolShape="circle"
+                        baseColor="success"
+                      />         
+                  </Grid>
+                  <Grid item xs={6}>
+                    <GraphiqueSante className="card-stretch card-stretch-half gutter-b" />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <CommunauteDaide />
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={4} className='pt-5 pl-5'>
+                <ActivitesRecentes className='h-100' />
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} className='pt-10'>
+            <Grid container>
+              {/* Tuteurs */}
+              <Grid item xs={12}>
+                <h1 className='text-muted'>Tuteurs du groupes : 1038</h1>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid container spacing={2}>
+                  {
+                    [1,2,3,4].map( item=>
+                      <Grid item xs={3}>
+                        <CardTuteur />
+                      </Grid>
+                  )}
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Grid>
+
     </>
   );
 };

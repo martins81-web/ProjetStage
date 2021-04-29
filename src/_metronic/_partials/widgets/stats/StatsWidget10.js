@@ -1,13 +1,13 @@
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
-import ApexCharts from 'apexcharts';
-import objectPath from 'object-path';
-import React, { useEffect, useMemo } from 'react';
-import SVG from 'react-inlinesvg';
+import React, { useMemo, useEffect } from "react";
+import objectPath from "object-path";
+import ApexCharts from "apexcharts";
+import SVG from "react-inlinesvg";
+import { toAbsoluteUrl } from "../../../_helpers";
+import { useHtmlClassService } from "../../../layout";
+import { KTUtil } from "../../../_assets/js/components/util";
 
-import { toAbsoluteUrl } from '../../../_metronic/_helpers';
-import { useHtmlClassService } from '../../../_metronic/layout';
-
-export function GraphiqueTaches({ className, symbolShape, baseColor }) {
+export function StatsWidget10({ className, symbolShape, baseColor }) {
   const uiService = useHtmlClassService();
   const layoutProps = useMemo(() => {
     return {
@@ -36,13 +36,14 @@ export function GraphiqueTaches({ className, symbolShape, baseColor }) {
   }, [uiService, baseColor]);
 
   useEffect(() => {
-    const element = document.getElementById("kt_stats_widget_11_chart");
+    const element = document.getElementById("kt_stats_widget_10_chart");
 
     if (!element) {
       return;
     }
 
-    const options = getChartOption(layoutProps);
+    const height = parseInt(KTUtil.css(element, "height"));
+    const options = getChartOption(layoutProps, height);
     const chart = new ApexCharts(element, options);
     chart.render();
     return function cleanUp() {
@@ -51,52 +52,55 @@ export function GraphiqueTaches({ className, symbolShape, baseColor }) {
   }, [layoutProps]);
 
   return (
-    <div className={`card card-custom ${className}`}>
-      <div className="card-body p-0">
-        <div className="d-flex align-items-center justify-content-between card-spacer flex-grow-1">
-          <span
-            className={`symbol ${symbolShape} symbol-50 symbol-light-${baseColor} mr-2`}
-          >
-            <span className="symbol-label">
-              <span className={`svg-icon svg-icon-xl svg-icon-${baseColor}`}>
-                <SVG
-                  src={toAbsoluteUrl(
-                    "/media/svg/icons/Layout/Layout-4-blocks.svg"
-                  )}
-                ></SVG>
+    <>
+      {/* begin::Stats Widget 10 */}
+      <div className={`card card-custom ${className}`}>
+        {/* begin::Body */}
+        <div className="card-body p-0">
+          <div className="d-flex align-items-center justify-content-between card-spacer flex-grow-1">
+            <span
+              className={`symbol ${symbolShape} symbol-50 symbol-light${baseColor} mr-2`}
+            >
+              <span className="symbol-label">
+                <span className={`svg-icon svg-icon-xl svg-icon-${baseColor}`}>
+                  <SVG
+                    src={toAbsoluteUrl("/media/svg/icons/Shopping/Cart3.svg")}
+                  ></SVG>
+                </span>
               </span>
             </span>
-          </span>
-          <div className="d-flex flex-column text-right">
-            <span className="text-dark-75 font-weight-bolder font-size-h3">
-              350 tâches
-            </span>
-            <span className="text-muted font-weight-bold mt-2">
-              Depuis le début du stage
-            </span>
+            <div className="d-flex flex-column text-right">
+              <span className="text-dark-75 font-weight-bolder font-size-h3">
+                +259
+              </span>
+              <span className="text-muted font-weight-bold mt-2">Sales Change</span>
+            </div>
           </div>
+          <div
+            id="kt_stats_widget_10_chart"
+            className="card-rounded-bottom"
+            data-color={baseColor}
+            style={{ height: "150px" }}
+          />
         </div>
-        <div
-          id="kt_stats_widget_11_chart"
-          className="card-rounded-bottom bg-white"
-          style={{ height: "150px" }}
-        ></div>
+        {/* end::Body */}
       </div>
-    </div>
+      {/* end::Stats Widget 10 */}
+    </>
   );
 }
 
-function getChartOption(layoutProps) {
+function getChartOption(layoutProps, height) {
   const options = {
     series: [
       {
         name: "Net Profit",
-        data: [20, 20, 40, 40, 40, 18, 15],
+        data: [40, 40, 30, 30, 35, 35, 50],
       },
     ],
     chart: {
       type: "area",
-      height: 150,
+      height: height,
       toolbar: {
         show: false,
       },
@@ -125,7 +129,7 @@ function getChartOption(layoutProps) {
       colors: [layoutProps.colorsThemeBaseSuccess],
     },
     xaxis: {
-      categories: ["Feb", "Mar", "Apr", "May", "Jun", "Aug", "Sep"],
+      categories: ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
       axisBorder: {
         show: false,
       },

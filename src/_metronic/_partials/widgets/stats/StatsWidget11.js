@@ -4,10 +4,10 @@ import objectPath from 'object-path';
 import React, { useEffect, useMemo } from 'react';
 import SVG from 'react-inlinesvg';
 
-import { toAbsoluteUrl } from '../../../_metronic/_helpers';
-import { useHtmlClassService } from '../../../_metronic/layout';
+import { toAbsoluteUrl } from '../../../_helpers';
+import { useHtmlClassService } from '../../../layout';
 
-export function GraphiqueTaches({ className, symbolShape, baseColor }) {
+export function StatsWidget11({ className, symbolShape, baseColor }) {
   const uiService = useHtmlClassService();
   const layoutProps = useMemo(() => {
     return {
@@ -91,7 +91,7 @@ function getChartOption(layoutProps) {
     series: [
       {
         name: "Net Profit",
-        data: [20, 20, 40, 40, 40, 18, 15],
+        data: [40, 40, 30, 30, 35, 35, 50],
       },
     ],
     chart: {

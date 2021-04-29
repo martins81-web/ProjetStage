@@ -1,2 +1,2 @@
-export { GraphiqueSante } from './GraphiqueSante';
-export { GraphiqueTaches } from './GraphiqueTaches';
+export { GraphSante } from './GraphSante';
+export { GraphTaches } from './GraphTaches';

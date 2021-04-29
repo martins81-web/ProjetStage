@@ -7,7 +7,7 @@ import SVG from 'react-inlinesvg';
 import { toAbsoluteUrl } from '../../../_metronic/_helpers';
 import { useHtmlClassService } from '../../../_metronic/layout';
 
-export function GraphiqueSante({ className }) {
+export function GraphSante({ className }) {
   const uiService = useHtmlClassService();
   const layoutProps = useMemo(() => {
     return {

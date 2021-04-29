@@ -1,13 +1,14 @@
 import React from 'react';
+import { Card, Col, Image, Row } from 'react-bootstrap';
+
 import { useSubheader } from '../../_metronic/layout';
-import { InformationsGroupe } from '../components/InformationsGroupe';
-import { ApercuStagiaires } from '../components/ApercuStagiaires';
 import { ActivitesRecentes } from '../components/ActivitesRecentes';
-import { CommunauteDaide } from '../components/CommunauteDaide/CommunauteDaide';
+import { ApercuStagiaires } from '../components/ApercuStagiaires';
 import { CardTuteur } from '../components/cards/CardTuteur';
+import { CommunauteDaide } from '../components/CommunauteDaide/CommunauteDaide';
 import { GraphiqueSanteGroupe } from '../components/graphiques/GraphiqueSanteGroupe';
-import { GraphiqueTaches } from '../components/graphiques/graphiqueTaches';
-import { Row, Col, Card, Image } from 'react-bootstrap';
+import { InformationsGroupe } from '../components/InformationsGroupe';
+
 export const DashboardGroup = () => {
   const suhbeader = useSubheader();
   suhbeader.setTitle('Tableau de bord du groupe');

@@ -7,7 +7,7 @@ import { ActivitesRecentes } from '../components/ActivitesRecentes';
 import { ApercuStagiaires } from '../components/ApercuStagiaires';
 import { CardTuteur } from '../components/cards/CardTuteur';
 import { CommunauteDaide } from '../components/CommunauteDaide/CommunauteDaide';
-import { GraphiqueSante, GraphiqueTaches } from '../components/graphiques/';
+import { GraphSante, GraphTaches } from '../components/graphiques/';
 import { InformationsGroupe } from '../components/InformationsGroupe';
 
 export const DashboardGroup = () => {
@@ -49,14 +49,14 @@ export const DashboardGroup = () => {
                 <Grid container spacing={2} className='pt-5 '>
                   {/* Section graphiques et Communaute d'aide */}
                   <Grid item xs={6}>
-                    <GraphiqueTaches
+                    <GraphTaches
                         className="card-stretch card-stretch-half gutter-b"
                         symbolShape="circle"
                         baseColor="success"
                       />         
                   </Grid>
                   <Grid item xs={6}>
-                    <GraphiqueSante className="card-stretch card-stretch-half gutter-b" />
+                    <GraphSante className="card-stretch card-stretch-half gutter-b" />
                   </Grid>
                   <Grid item xs={12}>
                     <CommunauteDaide />

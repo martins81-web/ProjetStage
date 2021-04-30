@@ -52,8 +52,7 @@ export const CommunauteDaide = ({ className }) => {
           </Card.Title>
           <Card.Body>
             {/* Reste a defenir ce qui doit etre la  */}
-            <Card.Text>
-              <hr />
+            <hr />
               <Input
                 fullWidth
                 multiline
@@ -65,7 +64,6 @@ export const CommunauteDaide = ({ className }) => {
               <Button variant='info' className='float-right'>
                 Envoyer
               </Button>
-            </Card.Text>
           </Card.Body>
         </Card>
       </Col>

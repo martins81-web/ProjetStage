@@ -5,10 +5,11 @@ import { ContentRoute, LayoutSplashScreen } from '../_metronic/layout';
 import { BuilderPage } from './pages/BuilderPage';
 import { DashboardGroup } from './pages/DashboardGroup';
 import { DashboardPage } from './pages/DashboardPage';
+import { DialogParent } from './pages/Dialog';
 import { ListeStagiaires } from './pages/ListeStagiaires';
 import { ListeTachesEtudiant } from './pages/ListeTachesEtudiant';
-import { Tuteurs } from './pages/Tuteurs';
 import { MyPage } from './pages/MyPage';
+import { Tuteurs } from './pages/Tuteurs';
 
 export default function BasePage() {
   // useEffect(() => {
@@ -27,6 +28,7 @@ export default function BasePage() {
         <ContentRoute path='/liste-stagiaires' component={ListeStagiaires} />
         <ContentRoute path='/builder' component={BuilderPage} />
         <ContentRoute path='/my-page' component={MyPage} />
+        <ContentRoute path='/dialog' component={DialogParent} />
         <ContentRoute
           path='/tableau-de-bord-groupe'
           component={DashboardGroup}

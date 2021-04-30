@@ -1,8 +1,6 @@
 import React from 'react';
-import SVG from 'react-inlinesvg';
-import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
-import { toAbsoluteUrl } from '../../../_metronic/_helpers';
+import styled from 'styled-components';
 
 export const CardEntrepriseContact = () => {
   return (

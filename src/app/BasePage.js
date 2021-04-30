@@ -1,5 +1,5 @@
-import React, { lazy, Suspense } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { Redirect, Switch } from 'react-router-dom';
 
 import { ContentRoute, LayoutSplashScreen } from '../_metronic/layout';
 import { BuilderPage } from './pages/BuilderPage';

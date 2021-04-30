@@ -1,5 +1,7 @@
+import { Grid } from '@material-ui/core';
 import React from 'react';
 import SVG from 'react-inlinesvg';
+import styled from 'styled-components';
 
 import { toAbsoluteUrl } from '../../../_metronic/_helpers';
 
@@ -58,8 +60,9 @@ const avatars = [
 
 export const IconeNomEmploi = () => {
   return (
+    <Wrapper>
     <div className='d-flex'>
-      <div className='symbol symbol-40 symbol-light-success mx-5'>
+      <div className='symbol symbol-40 symbol-light-success mr-5'>
         <span className='symbol-label'>
           <SVG
             className='h-75 align-self-end'
@@ -71,9 +74,21 @@ export const IconeNomEmploi = () => {
         </span>
       </div>
       <div>
-        <h5 className='font-weight-bold'>Ginnette Reanaud</h5>
-        <p className='text-muted'>services solutions</p>
+        <Grid container>
+          <Grid item xs={12}><span className='fontSizeSmall'><b>Ginnette Renaud</b></span></Grid>
+          <Grid item xs={12}><span className='text-muted fontSizeSmall'>services solutions</span></Grid>
+        </Grid>
+        
+        
       </div>
     </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+.fontSizeSmall{
+font-size: 0.875rem
+}
+
+`

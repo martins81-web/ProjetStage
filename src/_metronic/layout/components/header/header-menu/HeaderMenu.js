@@ -1,10 +1,9 @@
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
 import React from 'react';
-import SVG from 'react-inlinesvg';
 import { useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
-import { checkIsActive, toAbsoluteUrl } from '../../../../_helpers';
+import { checkIsActive } from '../../../../_helpers';
 
 export function HeaderMenu({ layoutProps }) {
     const location = useLocation();

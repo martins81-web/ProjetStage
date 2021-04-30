@@ -1,6 +1,7 @@
+import { Grid } from '@material-ui/core';
 import { Input } from '@material-ui/core/';
 import React from 'react';
-import { Button, Card, Col, Dropdown, Row } from 'react-bootstrap';
+import { Button, Card, Col, Dropdown } from 'react-bootstrap';
 import SVG from 'react-inlinesvg';
 
 import { toAbsoluteUrl } from '../../../_metronic/_helpers';
@@ -10,8 +11,12 @@ export const CommunauteDaide = ({ className }) => {
   return (
     <>
       <Col xs='12' className='px-0 py-5 d-flex justify-content-between '>
-        <h1 className='text-muted'>Communaute d'aide</h1>
-        <Button variant='light-info'>Voir tous les messages</Button>
+        <Grid container justify='space-between'>
+          <Grid item><h1 className='text-muted'>Communaute d'aide</h1></Grid>
+          <Grid item><Button variant='light-info'>Voir tous les messages</Button></Grid>
+        </Grid>
+        
+        
       </Col>
       <Col xs='12' className='px-0'>
         <Card>

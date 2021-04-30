@@ -1,38 +1,81 @@
-import React from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
-import { IconeNomEmploi } from './cards/IconeNomEmploi';
+import { Grid } from '@material-ui/core';
 import StarsIcon from '@material-ui/icons/Stars';
+import React from 'react';
+import { Button, Col } from 'react-bootstrap';
+
+import { IconeNomEmploi } from './cards/IconeNomEmploi';
+
 export const ApercuStagiaires = () => {
   return (
     <Col className='bg-white py-4'>
-      <Row className='d-flex justify-content-between p-5'>
-        <h4 className='font-weight-bolder'>Stagiaires</h4>
-        <Button variant='light-info font-weight-bolder '>Ajouter</Button>
-      </Row>
-      <Row className='d-flex justify-content-between'>
-        <IconeNomEmploi />
-        <StarsIcon className=' mt-0 text-success mr-5' fontSize='large' />
-      </Row>
-      <Row className='d-flex justify-content-between'>
-        <IconeNomEmploi />
-        <StarsIcon className=' mt-0 text-danger mr-5' fontSize='large' />
-      </Row>
-      <Row className='d-flex justify-content-between'>
-        <IconeNomEmploi />
-        <StarsIcon className=' mt-0 text-warning mr-5' fontSize='large' />
-      </Row>
-      <Row className='d-flex justify-content-between'>
-        <IconeNomEmploi />
-        <StarsIcon className=' mt-0 text-warning mr-5' fontSize='large' />
-      </Row>
-      <Row className='d-flex justify-content-between'>
-        <IconeNomEmploi />
-        <StarsIcon className=' mt-0 text-success mr-5' fontSize='large' />
-      </Row>
-      <Row className='d-flex justify-content-between'>
-        <IconeNomEmploi />
-        <StarsIcon className=' mt-0 text-danger mr-5' fontSize='large' />
-      </Row>
+      <Grid container direction='column' spacing={4}>
+        <Grid item xs={12}>
+          <Grid container alignItems='center' justify='space-between'>
+            <Grid item >
+              <h4 className='font-weight-bolder'>Stagiaires</h4>
+            </Grid>     
+            <Grid item>
+              <Button variant='light-info font-weight-bolder '>Ajouter</Button>
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Grid container direction='column' spacing={2}>
+            <Grid item xs={12}>
+              <Grid container alignItems='center'>
+                  <Grid item xs={10}>
+                    <IconeNomEmploi />
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Grid container justify='flex-end'>
+                      <StarsIcon className=' mt-0 text-success' />
+                    </Grid>
+                  </Grid>     
+              </Grid>
+            </Grid>
+
+            <Grid item xs={12}>
+              <Grid container alignItems='center'>
+                  <Grid item xs={10}>
+                    <IconeNomEmploi />
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Grid container justify='flex-end'>
+                      <StarsIcon className=' mt-0 text-danger' />
+                    </Grid>
+                  </Grid>     
+              </Grid>
+            </Grid>
+
+            <Grid item xs={12}>
+              <Grid container alignItems='center'>
+                  <Grid item xs={10}>
+                    <IconeNomEmploi />
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Grid container justify='flex-end'>
+                      <StarsIcon className=' mt-0 text-warning' />
+                    </Grid>
+                  </Grid>     
+              </Grid>
+            </Grid>
+
+            <Grid item xs={12}>
+              <Grid container alignItems='center'>
+                  <Grid item xs={10}>
+                    <IconeNomEmploi />
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Grid container justify='flex-end'>
+                      <StarsIcon className=' mt-0 text-primary' />
+                    </Grid>
+                  </Grid>     
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
     </Col>
   );
 };

@@ -44,10 +44,10 @@ const TableauBordGlobal =()=>{
                                 <ButtonNouveauStage className='buttonNouveauStage'>Créer un nouveau stage</ButtonNouveauStage>
                             </Grid>
                         </Grid>
-                        <Grid item xs className='marginSections'>
+                        <Grid item xs={12} className='marginSections'>
                             <Grid container spacing={5}>
                                 {[1,2,3,4,5,6].map( item=>
-                                    <Grid item xs={12} sm={6} md={4} lg={4}>
+                                    <Grid key={item} item xs={12} sm={6} md={4} lg={4}>
                                         <CardGroupe groupe={groupe}/>
                                     </Grid>
                                 )}
@@ -93,10 +93,10 @@ const TableauBordGlobal =()=>{
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={3} className='paddingArchives bgArchives'>
                     <Grid container>
-                        <Grid xs={12}>
+                        <Grid item xs={12}>
                             <h1 className='text-muted'>Archives</h1>
                         </Grid>
-                        <Grid xs={12}>
+                        <Grid item xs={12}>
                             <Grid container direction='column'>
                                 <Grid item xs={12} >
                                     <Grid container justify='space-between' className='mt-5'>
@@ -105,7 +105,7 @@ const TableauBordGlobal =()=>{
                                     </Grid>
                                     <Grid container>
                                         {sessions.map(session=>
-                                        <Grid item xs={6} className='mb-1'>
+                                        <Grid key={session} item xs={6} className='mb-1'>
                                             <span className="symbol circle symbol-25 symbol-light-success mr-2">
                                                 <span className="symbol-label">
                                                     <span className="svg-icon svg-icon-sm svg-icon-success ">
@@ -141,7 +141,7 @@ const TableauBordGlobal =()=>{
                                                     <a href='/' className='text-dark text-hover-primary mb-1 font-size-lg'>
                                                         Réseaux et cybersécurité
                                                     </a>
-                                                    <span class="text-muted">Hiver 2021</span>
+                                                    <span className="text-muted">Hiver 2021</span>
                                                 </div>
                                             </div>
                                             
@@ -160,7 +160,7 @@ const TableauBordGlobal =()=>{
                                                     <a href='/' className='text-dark text-hover-primary mb-1 font-size-lg'>
                                                         Dévelopment web
                                                     </a>
-                                                    <span class="text-muted">Éte 2021</span>
+                                                    <span className="text-muted">Éte 2021</span>
                                                 </div>
                                             </div>
                                         </Grid>
@@ -178,7 +178,7 @@ const TableauBordGlobal =()=>{
                                                     <a href='/' className='text-dark text-hover-primary mb-1 font-size-lg'>
                                                         Design et intégration Web
                                                     </a>
-                                                    <span class="text-muted">Automne 2020</span>
+                                                    <span className="text-muted">Automne 2020</span>
                                                 </div>
                                             </div>
                                         </Grid>
@@ -196,7 +196,7 @@ const TableauBordGlobal =()=>{
                                                     <a href='/' className='text-dark text-hover-primary mb-1 font-size-lg'>
                                                         Techniques de génie industriel
                                                     </a>
-                                                    <span class="text-muted">Automne 2020</span>
+                                                    <span className="text-muted">Automne 2020</span>
                                                 </div>
                                             </div>
                                         </Grid>
@@ -204,9 +204,7 @@ const TableauBordGlobal =()=>{
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid xs={12}>
-
-                        </Grid>
+                        
                     </Grid>
                 </Grid>
             </Grid>
@@ -234,9 +232,6 @@ const Wrapper = styled.div`
 .buttonMessage{
     margin-top: 10px
 }
-
-
-
 
 `
 

@@ -60,53 +60,64 @@ const avatars = [
 
 export const CardTuteur = () => {
   const [contacter, setContacter] = useState(false);
-  const [avatar, setAvatar] = useState(avatars[Math.floor(Math.random() * 50) + 1]);
+  const [avatar, setAvatar] = useState(
+    avatars[Math.floor(Math.random() * 50) + 1]
+  );
   return (
     <Wrapper>
-        <Card className='bg-white'>
-          <Card.Body className='p-0 m-0'>
-            <Grid container alignItems='flex-end'>
-              <Grid item xs={7} className='p-5'>
-                <Grid container spacing={1}>
-                  <Grid item>
-                    <h5 className='font-weight-bold mb-0'>Ginnette Reanaud</h5>
-                    <p className='text-muted mb-0'>Services solutions</p>
-                  </Grid>
-                  <Grid item><Button variant='info' className='btn-contacter' onClick={setContacter}>Contacter</Button></Grid>
+      <Card className='bg-white'>
+        <Card.Body className='p-0 m-0'>
+          <Grid container alignItems='flex-end'>
+            <Grid item xs={7} className='p-5'>
+              <Grid container spacing={1}>
+                <Grid item>
+                  <h5 className='font-weight-bold mb-0'>Ginnette Reanaud</h5>
+                  <p className='text-muted mb-0'>Services solutions</p>
                 </Grid>
-              </Grid>
-              <Grid item xs={5}>
-                <Grid container justify='center' >
-                  <span className="symbol circle symbol-100">
-                    <Image  
-                      src={toAbsoluteUrl('/media/svg/avatars/' + avatar)}
-                    /> 
-                  </span>
+                <Grid item>
+                  <Button
+                    variant='info'
+                    className='btn-contacter'
+                    onClick={setContacter}
+                  >
+                    Contacter
+                  </Button>
                 </Grid>
               </Grid>
             </Grid>
-          </Card.Body>
-          { contacter &&
+            <Grid item xs={5}>
+              <Grid container justify='center'>
+                <span className='symbol circle symbol-100'>
+                  <Image
+                    src={toAbsoluteUrl('/media/svg/avatars/' + avatar + '.svg')}
+                  />
+                </span>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Card.Body>
+        {contacter && (
           <Card.Body className='p-5 m-0'>
             <Grid container direction='column' spacing={1}>
               <Grid item xs={12}>
                 <TextField
-                  id="filled-textarea"
-                  label="Message"
+                  id='filled-textarea'
+                  label='Message'
                   multiline
-                  variant="filled"
+                  variant='filled'
                   fullWidth
                 />
               </Grid>
               <Grid item xs={12}>
                 <Grid container justify='flex-end' spacing={1}>
                   <Grid item>
-                    <Button variant='primary' >
-                      Envoyer
-                    </Button>
+                    <Button variant='primary'>Envoyer</Button>
                   </Grid>
                   <Grid item>
-                    <Button variant='danger' onClick={()=>setContacter(false)}>
+                    <Button
+                      variant='danger'
+                      onClick={() => setContacter(false)}
+                    >
                       Annuler
                     </Button>
                   </Grid>
@@ -114,15 +125,13 @@ export const CardTuteur = () => {
               </Grid>
             </Grid>
           </Card.Body>
-          }
-        </Card>
-       
+        )}
+      </Card>
     </Wrapper>
   );
 };
 const Wrapper = styled.div`
- .btn-contacter{
-   border-radius: 15px
- }
-
+  .btn-contacter {
+    border-radius: 15px;
+  }
 `;

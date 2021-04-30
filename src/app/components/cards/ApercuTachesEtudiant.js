@@ -5,7 +5,6 @@ import StarHalfIcon from '@material-ui/icons/StarHalf';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import CommentIcon from '@material-ui/icons/Comment';
 import styled from 'styled-components';
-import { Button, Card } from 'react-bootstrap';
 import { toAbsoluteUrl } from '../../../_metronic/_helpers';
 
 export const ApercuTachesEtudiant = (className) => {

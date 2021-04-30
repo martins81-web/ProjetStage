@@ -10,6 +10,8 @@ import { CommunauteDaide } from '../components/CommunauteDaide/CommunauteDaide';
 import { GraphSante, GraphTaches } from '../components/graphiques/';
 import { InformationsGroupe } from '../components/InformationsGroupe';
 
+
+
 export const DashboardGroup = () => {
   const suhbeader = useSubheader();
   suhbeader.setTitle('Tableau de bord du groupe');
@@ -17,7 +19,7 @@ export const DashboardGroup = () => {
     <>
     <Grid container>
       <Grid item xs={2}>
-          <InformationsGroupe />
+          <InformationsGroupe  />
           <ApercuStagiaires />
       </Grid>
       <Grid item xs={10}>
@@ -27,7 +29,7 @@ export const DashboardGroup = () => {
             <Card className='bg-white d-flex'>
               <Card.Body className='d-flex'>
                 <Image alt='Image a definir' />
-                <Card.Text>
+                <div>
                   <h1 className='text-muted text-uppercase'>
                     message important
                   </h1>
@@ -39,7 +41,7 @@ export const DashboardGroup = () => {
                     diam, a vulputate ante enim nec orci. Maecenas at dolor nec
                     ligula auctor imperdiet id ut quam.
                   </p>
-                </Card.Text>
+                  </div>
               </Card.Body>
             </Card>
           </Grid>
@@ -78,7 +80,7 @@ export const DashboardGroup = () => {
                 <Grid container spacing={2}>
                   {
                     [1,2,3,4].map( item=>
-                      <Grid item xs={3}>
+                      <Grid key={item} item xs={3}>
                         <CardTuteur />
                       </Grid>
                   )}

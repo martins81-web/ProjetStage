@@ -1,11 +1,11 @@
 import { Grid } from '@material-ui/core';
 import React, { useState } from 'react';
 import { Button, Card, Image } from 'react-bootstrap';
-import { IconeNomEmploi } from './IconeNomEmploi';
 import SVG from 'react-inlinesvg';
 import styled from 'styled-components';
 
 import { toAbsoluteUrl } from '../../../_metronic/_helpers';
+import { IconeNomEmploi } from './IconeNomEmploi';
 
 const avatars = [
   '001-boy',
@@ -68,9 +68,9 @@ export const CardPageTuteur = () => {
   return (
     <Wrapper>
       <Card className='bg-white my-3'>
-        <Card.Body className='p-0 m-0 rounded-0'>
+        <Card.Body className='p-5 m-0 rounded-0'>
           <Grid container>
-            <Grid item xs={6} className='p-5'>
+            <Grid item xs={12} sm={6} className='p-5'>
               <Grid container spacing={1}>
                 <Grid item>
                   <h5 className='font-weight-bold mb-0'>Ginnette Reanaud</h5>
@@ -95,7 +95,7 @@ export const CardPageTuteur = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12}  sm={6} >
               <Grid
                 container
                 justify='space-between'
@@ -106,7 +106,7 @@ export const CardPageTuteur = () => {
                 </span>
                 <div>
                   <a
-                    href='#'
+                    href='/'
                     className='btn btn-icon btn-light btn-hover-primary btn-sm mx-3'
                   >
                     <span className='svg-icon svg-icon-md svg-icon-primary'>
@@ -118,7 +118,7 @@ export const CardPageTuteur = () => {
                     </span>
                   </a>
                   <a
-                    href='#'
+                    href='/'
                     className='btn btn-icon btn-light btn-hover-primary btn-sm'
                   >
                     <span className='svg-icon svg-icon-md svg-icon-primary'>
@@ -131,10 +131,16 @@ export const CardPageTuteur = () => {
                   </a>
                 </div>
               </Grid>
-              <Grid container>
-                <IconeNomEmploi />
-                <IconeNomEmploi />
-                <IconeNomEmploi />
+              <Grid container direction='column' spacing={1}>
+                <Grid item xs={12}>
+                  <IconeNomEmploi />
+                </Grid>
+                <Grid item xs={12}>
+                  <IconeNomEmploi />
+                </Grid>
+                <Grid item xs={12}>
+                  <IconeNomEmploi />
+                </Grid>
               </Grid>
             </Grid>
           </Grid>

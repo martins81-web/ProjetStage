@@ -1,10 +1,11 @@
+import CommentIcon from '@material-ui/icons/Comment';
+import StarIcon from '@material-ui/icons/Star';
+import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
+import StarHalfIcon from '@material-ui/icons/StarHalf';
 import React from 'react';
 import SVG from 'react-inlinesvg';
-import StarIcon from '@material-ui/icons/Star';
-import StarHalfIcon from '@material-ui/icons/StarHalf';
-import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
-import CommentIcon from '@material-ui/icons/Comment';
 import styled from 'styled-components';
+
 import { toAbsoluteUrl } from '../../../_metronic/_helpers';
 
 export const ApercuTachesEtudiant = (className) => {
@@ -39,7 +40,7 @@ export const ApercuTachesEtudiant = (className) => {
             </div>
             <div className='card-toolbar align-self-start m-0'>
               <a
-                href='#'
+                href='/'
                 className='btn btn-light-info font-weight-bolder font-size-sm '
               >
                 Voir

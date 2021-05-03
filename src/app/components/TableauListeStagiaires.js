@@ -1,10 +1,11 @@
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
+import StarIcon from '@material-ui/icons/Star';
+import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
+import StarHalfIcon from '@material-ui/icons/StarHalf';
 import React from 'react';
 import SVG from 'react-inlinesvg';
-import StarIcon from '@material-ui/icons/Star';
-import StarHalfIcon from '@material-ui/icons/StarHalf';
-import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import styled from 'styled-components';
+
 import { toAbsoluteUrl } from '../../_metronic/_helpers';
 
 export function TableauListeStagiaires({ className }) {
@@ -55,15 +56,10 @@ export function TableauListeStagiaires({ className }) {
                     <span></span>
                   </label>
                 </th>
-                <th className='pr-0' style={{ width: '50px' }}>
-                  Stagiaires
-                </th>
-                <th style={{ minWidth: '200px' }} />
-                <th style={{ minWidth: '150px' }}>Hôte</th>
-                <th style={{ minWidth: '150px' }}>Évaluations</th>
-                <th className='pr-0 text-right' style={{ minWidth: '150px' }}>
-                  action
-                </th>
+                <th colspan="2">Stagiaires</th>
+                <th>Hôte</th>
+                <th>Évaluations</th>
+                <th className='text-right'>Actions</th>
               </tr>
             </thead>
             <tbody>

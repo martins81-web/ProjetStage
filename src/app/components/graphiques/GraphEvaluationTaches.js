@@ -1,13 +1,13 @@
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
 import ApexCharts from 'apexcharts';
 import objectPath from 'object-path';
-import React, { useEffect, useMemo } from 'react';
-import SVG from 'react-inlinesvg';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Nav, Tab } from 'react-bootstrap';
 
-import { toAbsoluteUrl } from '../../../_metronic/_helpers';
 import { useHtmlClassService } from '../../../_metronic/layout';
 
-export function GraphSante({ className }) {
+export function GraphEvaluationTaches({ className }) {
+  const [key, setKey] = useState("Mois");
   const uiService = useHtmlClassService();
   const layoutProps = useMemo(() => {
     return {
@@ -31,12 +31,20 @@ export function GraphSante({ className }) {
         uiService.config,
         "js.colors.theme.light.primary"
       ),
+      colorsThemeDanger: objectPath.get(
+        uiService.config,
+        "js.colors.theme.base.danger"
+      ),
+      colorsThemeWarning: objectPath.get(
+        uiService.config,
+        "js.colors.theme.base.warning"
+      ),
       fontFamily: objectPath.get(uiService.config, "js.fontFamily")
     };
   }, [uiService]);
 
   useEffect(() => {
-    const element = document.getElementById("kt_stats_widget_12_chart");
+    const element = document.getElementById("chartEvaluation");
 
     if (!element) {
       return;
@@ -50,49 +58,89 @@ export function GraphSante({ className }) {
     };
   }, [layoutProps]);
 
+
   return (
     <div className={`card card-custom ${className}`}>
-      <div className="card-body d-flex flex-column p-0">
-        <div className="d-flex align-items-center justify-content-between card-spacer flex-grow-1">
-          <span className="symbol symbol-circle symbol-50 symbol-light-primary mr-2">
-            <span className="symbol-label">
-              <span className="svg-icon svg-icon-xl svg-icon-primary">
-                <SVG
-                  src={toAbsoluteUrl(
-                    "/media/svg/icons/Shopping/Cart3.svg"
-                  )}
-                ></SVG>
-              </span>
-            </span>
+      {/* Head */}
+      <div className="card-header border-0 pt-5">
+        <h3 className="card-title align-items-start flex-column">
+          <span className="card-label font-weight-bolder text-dark">
+            Évaluation des tâches
           </span>
-          <div className="d-flex flex-column text-right">
-            <span className="text-dark-75 font-weight-bolder font-size-h3">
-              Santé du groupe
-            </span>
-            <span className="text-muted font-weight-bold mt-2">Les 7 derniers jours</span>
-          </div>
+          <span className="text-muted mt-3 font-weight-bold font-size-sm">
+            17 tâches en total
+          </span>
+        </h3>
+        <div className="card-toolbar">
+          <Tab.Container defaultActiveKey={key}>
+            <Nav
+              as="ul"
+              onSelect={_key => setKey(_key)}
+              className="nav nav-pills nav-pills-sm nav-dark-75"
+            >
+              <Nav.Item className="nav-item" as="li">
+                <Nav.Link
+                  eventKey="Mois"
+                  className={`nav-link py-2 px-4 ${
+                    key === "Mois" ? "active" : ""
+                  }`}
+                >
+                  Mois
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item className="nav-item" as="li">
+                <Nav.Link
+                  eventKey="Semaine"
+                  className={`nav-link py-2 px-4 ${
+                    key === "Semaine" ? "active" : ""
+                  }`}
+                >
+                  Semaine
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item className="nav-item" as="li">
+                <Nav.Link
+                  eventKey="Jour"
+                  className={`nav-link py-2 px-4 ${
+                    key === "Jour" ? "active" : ""
+                  }`}
+                >
+                  Jour
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Tab.Container>
         </div>
-        <div
-          id="kt_stats_widget_12_chart"
-          className="card-rounded-bottom bg-white"
-          style={{ height: "150px" }}
-        />
       </div>
+      <div
+          id="chartEvaluation"
+          className="card-rounded-bottom bg-white "
+          style={{ height: "300px" }}
+        />
     </div>
   );
 }
+
 
 function getChartOption(layoutProps) {
   var options = {
     series: [
       {
-        name: "Net Profit",
-        data: [40, 40, 30, 30, 35, 35, 50]
-      }
+        name: "graph 1",
+        data: [4,2, 3, 3.1, 4.2, 3.5]
+      },
+      {
+        name: "graph 2",
+        data: [2, 4, 2, 2.5, 3.5, 2.5]
+      },
+      {
+        name: "graph 3",
+        data: [1, 1.8, 2.3, 1.5, 2.5, 2.0]
+      },
     ],
     chart: {
       type: "area",
-      height: 150,
+      height: 300,
       toolbar: {
         show: false
       },
@@ -116,12 +164,12 @@ function getChartOption(layoutProps) {
     },
     stroke: {
       curve: "smooth",
-      show: true,
+      show: false,
       width: 3,
       colors: [layoutProps.colorsThemeBasePrimary]
     },
     xaxis: {
-      categories: ["Feb", "Mar", "Apr", "May", "Jun", "Aug", "Sep"],
+      categories: ["1 Aug", "8 Aug", "15 Aug", "22 Aug", "29 Aug", "5 Sep"],
       axisBorder: {
         show: false
       },
@@ -157,9 +205,9 @@ function getChartOption(layoutProps) {
     },
     yaxis: {
       min: 0,
-      max: 55,
+      max: 6,
       labels: {
-        show: false,
+        show: true,
         style: {
           colors: layoutProps.colorsGrayGray500,
           fontSize: "12px",
@@ -195,11 +243,11 @@ function getChartOption(layoutProps) {
       },
       y: {
         formatter: function(val) {
-          return "$" + val + " thousands";
+          return  val ;
         }
       }
     },
-    colors: [layoutProps.colorsThemeLightPrimary],
+    colors: [layoutProps.colorsThemeBasePrimary, layoutProps.colorsThemeDanger,layoutProps.colorsThemeWarning],
     markers: {
       colors: [layoutProps.colorsThemeLightPrimary],
       strokeColor: [layoutProps.colorsThemeBasePrimary],
@@ -208,3 +256,5 @@ function getChartOption(layoutProps) {
   };
   return options;
 }
+
+

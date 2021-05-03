@@ -9,6 +9,7 @@ import { DialogParent } from './pages/Dialog';
 import { ListeStagiaires } from './pages/ListeStagiaires';
 import { ListeTachesEtudiant } from './pages/ListeTachesEtudiant';
 import { MyPage } from './pages/MyPage';
+import { TacheDetails } from './pages/TacheDetails';
 import { Tuteurs } from './pages/Tuteurs';
 
 export default function BasePage() {
@@ -37,7 +38,7 @@ export default function BasePage() {
           path='/liste-taches-etudiant'
           component={ListeTachesEtudiant}
         />
-
+        <ContentRoute path='/tache/details' component={TacheDetails} />
         <ContentRoute path='/tuteurs' component={Tuteurs} />
         {/* <Redirect to="/error/error-v1" /> */}
       </Switch>

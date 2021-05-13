@@ -6,6 +6,7 @@ import { BuilderPage } from './pages/BuilderPage';
 import { DashboardGroup } from './pages/DashboardGroup';
 import { DashboardPage } from './pages/DashboardPage';
 import { DialogParent } from './pages/Dialog';
+import { Entreprises } from './pages/Entreprises';
 import { ListeStagiaires } from './pages/ListeStagiaires';
 import { ListeTachesEtudiant } from './pages/ListeTachesEtudiant';
 import { MyPage } from './pages/MyPage';
@@ -40,6 +41,7 @@ export default function BasePage() {
         />
         <ContentRoute path='/tache/details' component={TacheDetails} />
         <ContentRoute path='/tuteurs' component={Tuteurs} />
+        <ContentRoute path='/entreprises' component={Entreprises} />
         {/* <Redirect to="/error/error-v1" /> */}
       </Switch>
     </Suspense>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
 
-export const CardEntrepriseContact = () => {
+export const CardEntrepriseContact = ({contacter}) => {
   return (
     <>
       <Wrapper className='px-4 '>
@@ -11,10 +11,10 @@ export const CardEntrepriseContact = () => {
         <p className=' mb-3'>Ville region zip</p>
         <p className=''>Telephone</p>
         <p className=' mb-3'>Siteweb</p>
-        <h4 className='font-weight-bold mb-2'>Responsable du stagiaire : </h4>
+        <h4 className='font-weight-bold mb-2'>Responsable </h4>
         <p className=''>Nom</p>
         <p className=' mb-3'>Email</p>
-        <Button variant='info'>Contacter</Button>
+        {contacter && <Button variant='info'>Contacter</Button>}
       </Wrapper>
     </>
   );

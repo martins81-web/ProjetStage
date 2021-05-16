@@ -26,7 +26,7 @@ export const ProfilTuteurHote = () => {
             </Grid>
             <Grid item xs={12}  className='mt-20'>
               <h1 className='text-muted px-4'>Hote</h1>
-              <CardEntrepriseContact />
+              <CardEntrepriseContact contacter/>
             </Grid> 
           </Grid> 
   );

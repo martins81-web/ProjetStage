@@ -31,7 +31,7 @@ export default function BasePage() {
         <ContentRoute path='/my-page' component={MyPage} />
         <ContentRoute path='/dialog' component={DialogParent} />
         <ContentRoute
-          path='/tableau-de-bord-groupe'
+          path='/tableau-de-bord-groupe/:title'
           component={DashboardGroup}
         />
         <ContentRoute

@@ -1,55 +1,70 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { DashboardGroup } from '../../pages/DashboardGroup';
 import styled from 'styled-components';
 
+const CardGroupe = (props) => {
+  //   const { title, subTitle, debut, fin, nbStagiaires, type } = groupe;
 
-
-const CardGroupe =({groupe})=>{
-
-    const {title, subTitle, debut,fin,nbStagiaires,type} = groupe;
-
-    return (
-        <Wrapper>
-            <Card >
-                <Card.Body className='cardBody'>
-                    <div className='bodyInfos'>
-                        <Card.Title><h3><b>{title}</b></h3></Card.Title>
-                        <Card.Subtitle className='subTitle'>{subTitle}</Card.Subtitle>
-                        <div className='mt-4'>
-                            <div><b>Début:</b> {debut}</div>
-                            <div><b>Fin:</b> {fin}</div>
-                            <div><b>Stagiaires:</b> {nbStagiaires}</div>
-                            <div><b>Type:</b> {type}</div>
-                        </div>
-                    </div>
-                <Button variant="danger" className='button'>Accéder</Button>
-                </Card.Body>
-            </Card>
-        </Wrapper>
-    );
-}
+  return (
+    <Wrapper>
+      <Card>
+        <Card.Body className='cardBody'>
+          <div className='bodyInfos'>
+            <Card.Title>
+              <h3>
+                {/* {this.props.groupe.title} */}
+                <b>GROUPE #{props.title}</b>
+              </h3>
+            </Card.Title>
+            <Card.Subtitle className='subTitle'>{props.subTitle}</Card.Subtitle>
+            <div className='mt-4'>
+              <div>
+                <b>Début:</b>
+                {props.debut}
+              </div>
+              <div>
+                <b>Fin:</b>
+                {props.fin}
+              </div>
+              <div>
+                <b>Stagiaires:</b>
+                {props.nbStagiaires}
+              </div>
+              <div>
+                <b>Type:</b>
+                {props.type}
+              </div>
+            </div>
+          </div>
+          <Link to={'/tableau-de-bord-groupe/' + props.title}>
+            <Button variant='danger' className='button'>
+              Accéder
+            </Button>
+          </Link>
+        </Card.Body>
+      </Card>
+    </Wrapper>
+  );
+};
 
 export default CardGroupe;
 
-
 const Wrapper = styled.div`
-.cardBody{
-    padding: 0px
-}
-.button {
+  .cardBody {
+    padding: 0px;
+  }
+  .button {
     width: 100%;
     border-radius: 0px;
+  }
 
-}
-
-
-.bodyInfos{
+  .bodyInfos {
     padding: 25px;
+  }
 
-}
-
-.subTitle{
-    color: darkgray
-}
-
-`
+  .subTitle {
+    color: darkgray;
+  }
+`;

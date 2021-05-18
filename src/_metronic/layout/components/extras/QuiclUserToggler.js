@@ -1,11 +1,12 @@
 /* eslint-disable no-restricted-imports */
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
-import React, { useMemo } from "react";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import { useSelector, shallowEqual } from "react-redux";
-import objectPath from "object-path";
-import { useHtmlClassService } from "../../_core/MetronicLayout";
-import { UserProfileDropdown } from "./dropdowns/UserProfileDropdown";
+import objectPath from 'object-path';
+import React, { useMemo } from 'react';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { shallowEqual, useSelector } from 'react-redux';
+
+import { useHtmlClassService } from '../../_core/MetronicLayout';
+import { UserProfileDropdown } from './dropdowns/UserProfileDropdown';
 
 export function QuickUserToggler() {
   const { user } = useSelector((state) => state.auth, shallowEqual);
@@ -22,7 +23,7 @@ export function QuickUserToggler() {
       {layoutProps.offcanvas && (
         <OverlayTrigger
           placement="bottom"
-          overlay={<Tooltip id="quick-user-tooltip">View user</Tooltip>}
+          overlay={<Tooltip id="quick-user-tooltip">Voir utilisateur</Tooltip>}
         >
           <div className="topbar-item">
             <div

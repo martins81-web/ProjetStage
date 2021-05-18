@@ -6,6 +6,7 @@ import { useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
 import { checkIsActive, toAbsoluteUrl } from '../../../../_helpers';
+
 const noGroupes = [1038, 1011, 988, 1144, 1609, 1034];
 export function AsideMenuList({ layoutProps }) {
   const location = useLocation();
@@ -543,7 +544,7 @@ export function AsideMenuList({ layoutProps }) {
           className={`menu-item ${getMenuItemActive('/quitter', false)}`}
           aria-haspopup='true'
         >
-          <NavLink className='menu-link' to='/quitter'>
+          <NavLink className='menu-link' to='/logout'>
             <span className='svg-icon menu-icon'>
               <SVG src={toAbsoluteUrl('/media/svg/icons/Home/Door-open.svg')} />
             </span>

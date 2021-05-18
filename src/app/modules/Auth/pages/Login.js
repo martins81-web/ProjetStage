@@ -20,8 +20,8 @@ import * as auth from '../_redux/authRedux';
 */
 
 const initialValues = {
-  email: "admin@demo.com",
-  password: "demo",
+  email: "hugo.cloutier@cegeptr.qc.ca",
+  password: "Admin123!",
 };
 
 function Login(props) {

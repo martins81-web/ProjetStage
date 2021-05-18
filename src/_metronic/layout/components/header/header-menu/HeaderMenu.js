@@ -17,17 +17,17 @@ export function HeaderMenu({ layoutProps }) {
         {...layoutProps.headerMenuAttributes}
     >
         {/*begin::Header Nav*/}
-        <ul className={`menu-nav ${layoutProps.ulClasses}`}>
+        {/* <ul className={`menu-nav ${layoutProps.ulClasses}`}> */}
             {/*begin::1 Level*/}
-            <li className={`menu-item menu-item-rel ${getMenuItemActive('/dashboard')}`}>
+           {/*  <li className={`menu-item menu-item-rel ${getMenuItemActive('/dashboard')}`}>
                 <NavLink className="menu-link" to="/dashboard">
                     <span className="menu-text">Dashboard</span>
                     {layoutProps.rootArrowEnabled && (<i className="menu-arrow" />)}
                 </NavLink>
-            </li>
+            </li> */}
             {/*end::1 Level*/}
 
-        </ul>
+        {/* </ul> */}
         {/*end::Header Nav*/}
     </div>;
 }

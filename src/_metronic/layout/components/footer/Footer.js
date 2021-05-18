@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { useHtmlClassService } from '../../_core/MetronicLayout';
 
@@ -15,8 +16,9 @@ export function Footer() {
   }, [uiService]);
 
   return (
+    <Wrapper>
     <div
-      className={`footer bg-white py-4 d-flex flex-lg-column  ${layoutProps.footerClasses}`}
+      className={`footer backg py-4 d-flex flex-lg-column  ${layoutProps.footerClasses}`}
       id="kt_footer"
     >
       <div
@@ -28,19 +30,19 @@ export function Footer() {
             href="https://www.charlesetiennev.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-dark-75 text-hover-primary"
+            className="text-dark-50 text-hover-primary"
           >
             Charles-Étienne
           </a>
-          <span
-          >
+          
+           <span className="text-dark-50">
            {'  -  '}
-          </span>
+           </span> 
           <a
             href="http://ericmartins.net"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-dark-75 text-hover-primary"
+            className="text-dark-50 text-hover-primary"
           >
             Eric Martins
           </a>
@@ -54,5 +56,10 @@ export function Footer() {
         </div>
       </div>
     </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+.backg{background-color: #1e1e2d}
+`;

@@ -1,13 +1,14 @@
 /* eslint-disable no-restricted-imports */
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
-import React, { useMemo } from "react";
-import { Link } from "react-router-dom";
-import Dropdown from "react-bootstrap/Dropdown";
-import { useSelector } from "react-redux";
-import objectPath from "object-path";
-import { useHtmlClassService } from "../../../_core/MetronicLayout";
-import { toAbsoluteUrl } from "../../../../_helpers";
-import { DropdownTopbarItemToggler } from "../../../../_partials/dropdowns";
+import objectPath from 'object-path';
+import React, { useMemo } from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import { toAbsoluteUrl } from '../../../../_helpers';
+import { DropdownTopbarItemToggler } from '../../../../_partials/dropdowns';
+import { useHtmlClassService } from '../../../_core/MetronicLayout';
 
 export function UserProfileDropdown() {
   const { user } = useSelector((state) => state.auth);
@@ -32,7 +33,7 @@ export function UserProfileDropdown() {
           }
         >
           <span className="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">
-            Hi,
+            Bonjour,
           </span>{" "}
           <span className="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
             {user.firstname} {user.lastname}
@@ -89,7 +90,7 @@ export function UserProfileDropdown() {
           )}
         </>
 
-        <div className="navi navi-spacer-x-0 pt-5">
+        <div className="navi navi-spacer-x-0 pt-5 bg-light">
           <Link to="/user-profile" className="navi-item px-8 cursor-pointer">
             <div className="navi-link">
               <div className="navi-icon mr-2">
@@ -97,13 +98,10 @@ export function UserProfileDropdown() {
               </div>
               <div className="navi-text">
                 <div className="font-weight-bold cursor-pointer">
-                  My Profile
+                  Mon profil
                 </div>
                 <div className="text-muted">
-                  Account settings and more
-                  <span className="label label-light-danger label-inline font-weight-bold">
-                    update
-                  </span>
+                Paramètres de compte et plus  
                 </div>
               </div>
             </div>
@@ -115,23 +113,13 @@ export function UserProfileDropdown() {
                 <i className="flaticon2-mail text-warning"></i>
               </div>
               <div className="navi-text">
-                <div className="font-weight-bold">My Messages</div>
-                <div className="text-muted">Inbox and tasks</div>
+                <div className="font-weight-bold">Mes messages</div>
+                <div className="text-muted">Boîte de réception et tâches</div>
               </div>
             </div>
           </a>
 
-          <a className="navi-item px-8">
-            <div className="navi-link">
-              <div className="navi-icon mr-2">
-                <i className="flaticon2-rocket-1 text-danger"></i>
-              </div>
-              <div className="navi-text">
-                <div className="font-weight-bold">My Activities</div>
-                <div className="text-muted">Logs and notifications</div>
-              </div>
-            </div>
-          </a>
+
 
           <a className="navi-item px-8">
             <div className="navi-link">
@@ -139,8 +127,8 @@ export function UserProfileDropdown() {
                 <i className="flaticon2-hourglass text-primary"></i>
               </div>
               <div className="navi-text">
-                <div className="font-weight-bold">My Tasks</div>
-                <div className="text-muted">latest tasks and projects</div>
+                <div className="font-weight-bold">Mes tâches</div>
+                <div className="text-muted">dernières tâches et projets</div>
               </div>
             </div>
           </a>
@@ -151,11 +139,9 @@ export function UserProfileDropdown() {
               to="/logout"
               className="btn btn-light-primary font-weight-bold"
             >
-              Sign Out
+              Se déconnecter
             </Link>
-            <a href="#" className="btn btn-clean font-weight-bold">
-              Upgrade Plan
-            </a>
+            
           </div>
         </div>
       </Dropdown.Menu>

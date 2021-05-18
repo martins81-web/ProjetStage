@@ -1,9 +1,11 @@
-import React, {useMemo} from "react";
-import objectPath from "object-path";
-import {useHtmlClassService} from "../../_core/MetronicLayout";
-import {Topbar} from "./Topbar";
-import {HeaderMenuWrapper} from "./header-menu/HeaderMenuWrapper";
-import {AnimateLoading} from "../../../_partials/controls";
+import objectPath from 'object-path';
+import React, { useMemo } from 'react';
+import styled from 'styled-components';
+
+import { AnimateLoading } from '../../../_partials/controls';
+import { useHtmlClassService } from '../../_core/MetronicLayout';
+import { HeaderMenuWrapper } from './header-menu/HeaderMenuWrapper';
+import { Topbar } from './Topbar';
 
 export function Header() {
   const uiService = useHtmlClassService();
@@ -21,7 +23,7 @@ export function Header() {
   }, [uiService]);
 
   return (
-    <>
+    <Wrapper>
       {/*begin::Header*/}
       <div
         className={`header ${layoutProps.headerClasses}`}
@@ -29,7 +31,7 @@ export function Header() {
         {...layoutProps.headerAttributes}
       >
         {/*begin::Container*/}
-        <div className={` ${layoutProps.headerContainerClasses} d-flex align-items-stretch justify-content-between`}>
+        <div className={` ${layoutProps.headerContainerClasses} d-flex align-items-stretch justify-content-between bg`}>
           <AnimateLoading />
           {/*begin::Header Menu Wrapper*/}
           {layoutProps.menuHeaderDisplay && <HeaderMenuWrapper />}
@@ -43,6 +45,10 @@ export function Header() {
         {/*end::Container*/}
       </div>
       {/*end::Header*/}
-    </>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+.bg{background-color: #1e1e2d}
+`;

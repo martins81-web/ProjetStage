@@ -9,13 +9,14 @@ import { nvAcces } from '../misc/enum';
 const TableauBordGlobal = () => {
  
   const { user } = useSelector((state) => state.auth);
-  
+  const nvAccesUser=user.roles[0];
+
   return (
     <>
-    {user.roles[0]===nvAcces.coordonnateur && <DashboardAdmin/>}
-    {user.roles[0]===nvAcces.tuteur && "Dash Tuteur"}
-    {user.roles[0]===nvAcces.entreprise && "Dash entreprise"}
-    {user.roles[0]===nvAcces.stagiaire && "Dash stagiaire"}
+    {nvAccesUser===nvAcces.coordonnateur && <DashboardAdmin/>}
+    {nvAccesUser===nvAcces.tuteur && "Dash Tuteur"}
+    {nvAccesUser===nvAcces.entreprise && "Dash entreprise"}
+    {nvAccesUser===nvAcces.stagiaire && "Dash stagiaire"}
     </>
   );
 };

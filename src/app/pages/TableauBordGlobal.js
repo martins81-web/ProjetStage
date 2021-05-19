@@ -14,9 +14,9 @@ const TableauBordGlobal = () => {
   return (
     <>
     {nvAccesUser===nvAcces.coordonnateur && <DashboardAdmin/>}
-    {nvAccesUser===nvAcces.tuteur && <DashboardStagiaires/>}
+    {nvAccesUser===nvAcces.tuteur && "Dash tuteur"}
     {nvAccesUser===nvAcces.entreprise && "Dash entreprise"}
-    {nvAccesUser===nvAcces.stagiaire && "Dash stagiaire"}
+    {nvAccesUser===nvAcces.stagiaire && <DashboardStagiaires/>}
     </>
   );
 };

@@ -53,4 +53,17 @@ export default [
     firstname: "Eric",
     lastname: "Martins",
   },
+  {
+    id: 5,
+    username: "cEtienne",
+    password: "stagiaire",
+    email: "charlesEtienne@gmail.com",
+    accessToken: "access-token-8f3ae836da744329a6f93bf20594b5bb",
+    refreshToken: "access-token-f8c137a2c98743f48b643e71161d90cc",
+    roles: [4], // stagiaire
+    pic: toAbsoluteUrl("/media/users/default.jpg"),
+    fullname: "Charles Étienne",
+    firstname: "Charles",
+    lastname: "Étienne",
+  },
 ];

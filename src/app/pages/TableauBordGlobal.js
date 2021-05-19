@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import DashboardAdmin from '../components/DashboardAdmin';
+import DashboardStagiaires from '../components/DashboardStagiaires';
 import { nvAcces } from '../misc/enum';
-
 
 const TableauBordGlobal = () => {
  
@@ -14,7 +14,7 @@ const TableauBordGlobal = () => {
   return (
     <>
     {nvAccesUser===nvAcces.coordonnateur && <DashboardAdmin/>}
-    {nvAccesUser===nvAcces.tuteur && "Dash Tuteur"}
+    {nvAccesUser===nvAcces.tuteur && <DashboardStagiaires/>}
     {nvAccesUser===nvAcces.entreprise && "Dash entreprise"}
     {nvAccesUser===nvAcces.stagiaire && "Dash stagiaire"}
     </>

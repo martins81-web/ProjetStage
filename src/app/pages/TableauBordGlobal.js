@@ -13,10 +13,12 @@ const TableauBordGlobal = () => {
 
   return (
     <>
+
       {nvAccesUser === nvAcces.coordonnateur && <DashboardAdmin />}
       {nvAccesUser === nvAcces.tuteur && <DashboardStagiaires />}
       {nvAccesUser === nvAcces.entreprise && <DasboardEntreprises />}
       {nvAccesUser === nvAcces.stagiaire && 'Dash stagiaire'}
+
     </>
   );
 };

@@ -4,25 +4,25 @@ import styled from 'styled-components';
 
 import DashboardAdmin from '../components/DashboardAdmin';
 import DashboardStagiaires from '../components/DashboardStagiaires';
+import DasboardEntreprises from '../components/DashboardEntreprises';
 import { nvAcces } from '../misc/enum';
 
 const TableauBordGlobal = () => {
- 
   const { user } = useSelector((state) => state.auth);
-  const nvAccesUser=user.roles[0];
+  const nvAccesUser = user.roles[0];
 
   return (
     <>
-    {nvAccesUser===nvAcces.coordonnateur && <DashboardAdmin/>}
-    {nvAccesUser===nvAcces.tuteur && "Dash tuteur"}
-    {nvAccesUser===nvAcces.entreprise && "Dash entreprise"}
-    {nvAccesUser===nvAcces.stagiaire && <DashboardStagiaires/>}
+
+      {nvAccesUser === nvAcces.coordonnateur && <DashboardAdmin />}
+      {nvAccesUser === nvAcces.tuteur && <DashboardStagiaires />}
+      {nvAccesUser === nvAcces.entreprise && <DasboardEntreprises />}
+      {nvAccesUser === nvAcces.stagiaire && 'Dash stagiaire'}
+
     </>
   );
 };
 
 export default TableauBordGlobal;
 
-const Wrapper = styled.div`
-  
-`;
+const Wrapper = styled.div``;

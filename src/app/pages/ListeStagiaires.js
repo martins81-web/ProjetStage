@@ -14,30 +14,30 @@ export const ListeStagiaires = () => {
   suhbeader.setTitle('Liste des stagiaires');
 
   const theme = useTheme();
-  
+
   const matchesLG = useMediaQuery(theme.breakpoints.down('lg'));
 
-  const Filtre=()=>{
-    return(
-      <Grid item xs={12} sm={6} md={6} lg={6} xl={3} className='p-10 bg-white' >
+  const Filtre = () => {
+    return (
+      <Grid item xs={12} sm={6} md={6} lg={6} xl={3} className='p-10 bg-white'>
         <FiltreStagiaires />
       </Grid>
     );
-  }
+  };
 
   return (
     <>
-    <Grid container>
-      <Grid item xs={12} sm={6} md={6} lg={6} xl={3}>          
-        <InformationsGroupe />
+      <Grid container>
+        <Grid item xs={12} sm={6} md={6} lg={6} xl={3}>
+          <InformationsGroupe />
+        </Grid>
+        {matchesLG && Filtre()}
+        <Grid item xs={12} sm={12} md={12} lg={12} xl={6} className='p-10'>
+          <h1 className='text-muted my-5'>Stagiaires</h1>
+          <TableauListeStagiaires />
+        </Grid>
+        {!matchesLG && Filtre()}
       </Grid>
-      {matchesLG && Filtre()}
-      <Grid item xs={12} sm={12} md={12} lg={12} xl={6} className='p-10'>
-        <h1 className='text-muted my-5'>Stagiaires</h1>
-        <TableauListeStagiaires />
-      </Grid>
-      {!matchesLG && Filtre()}
-    </Grid>
     </>
   );
 };

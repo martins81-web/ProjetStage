@@ -1,6 +1,6 @@
-import React from "react";
-import {useField, useFormikContext} from "formik";
-import DatePicker from "react-datepicker";
+import { useField, useFormikContext } from 'formik';
+import React from 'react';
+import DatePicker from 'react-datepicker';
 
 const getFieldCSSClasses = (touched, errors) => {
   const classes = ["form-control"];

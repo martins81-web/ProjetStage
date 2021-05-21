@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useMemo } from "react";
-import { getInitLayoutConfig } from "./LayoutConfig";
-import { HtmlClassService } from "./HTMLClassService";
+import React, { createContext, useContext, useMemo } from 'react';
+
+import { HtmlClassService } from './HTMLClassService';
+import { getInitLayoutConfig } from './LayoutConfig';
 
 const LAYOUT_CONFIG_KEY =
   process.env.REACT_APP_LAYOUT_CONFIG_KEY || "LayoutConfig";
@@ -53,6 +54,9 @@ export function withHtmlClassService(Component) {
 export const HtmlClassServiceConsumer = HtmlClassServiceContext.Consumer;
 
 export function MetronicLayoutProvider({ children }) {
+
+
+
   const lc = useMemo(getConfig, []);
   const hcs = useMemo(() => {
     const service = new HtmlClassService();

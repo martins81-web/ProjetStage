@@ -2,16 +2,9 @@ import React from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import styled from 'styled-components';
 
-const groupe={
-  nom: 'Reseautique et support technique',
-  debut: '2012-12-12',
-  id: '#1028',
-  Stagiaires: 15,
-  Type: 'distance'
-}
+
 
 export const InformationsGroupe = () => {
-  const  {nom,debut,id,Stagiaires,Type}=groupe;
   return (
     <Wrapper className='bg-danger px-3 pt-2 text-white'>
       <DropdownButton
@@ -24,23 +17,23 @@ export const InformationsGroupe = () => {
         <Dropdown.Item as='button'>Another action</Dropdown.Item>
         <Dropdown.Item as='button'>Something else</Dropdown.Item>
       </DropdownButton>
-      <h2>{nom}</h2>
+      <h2></h2>
       <p>
-        Debut: <span>{debut}</span>
+        Debut: <span></span>
       </p>
       <p>
-        Fin: <span>2012-12-12</span>
+        Fin: <span></span>
       </p>
       <p>
-        Session: <span>ete 2012</span>
+        Session: <span></span>
       </p>
       <p>
-        Stagiaires: <span>{Stagiaires}</span>
+        Stagiaires: <span></span>
       </p>
       <p>
-        Type: <span>{Type}</span>
+        Type: <span></span>
       </p>
-      <h1 className='text-right mb-0'>{id}</h1>
+      <h1 className='text-right mb-0'>{'#'+localStorage.getItem('groupeNb')}</h1>
       
     </Wrapper>
   );

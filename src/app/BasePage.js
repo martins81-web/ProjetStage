@@ -1,4 +1,5 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
+import { useLocation } from 'react-router';
 import { Redirect, Switch } from 'react-router-dom';
 
 import { ContentRoute, LayoutSplashScreen } from '../_metronic/layout';
@@ -14,9 +15,11 @@ import { TacheDetails } from './pages/TacheDetails';
 import { Tuteurs } from './pages/Tuteurs';
 
 export default function BasePage() {
-  // useEffect(() => {
-  //   console.log('Base page');
-  // }, []) // [] - is required if you need only one call
+  const location = useLocation();
+
+  useEffect(() => {
+    location.pathname.includes('/groupe/') && localStorage.setItem('groupeNb', location.pathname.substr(location.pathname.length - 4));
+  }, []) // [] - is required if you need only one call
   // https://reactjs.org/docs/hooks-reference.html#useeffect
 
   return (
@@ -32,7 +35,7 @@ export default function BasePage() {
         <ContentRoute path='/my-page' component={MyPage} />
         <ContentRoute path='/dialog' component={DialogParent} />
         <ContentRoute
-          path='/tableau-de-bord-groupe/:title'
+          path='/tableau-de-bord-groupe/groupe/:title'
           component={DashboardGroup}
         />
         <ContentRoute

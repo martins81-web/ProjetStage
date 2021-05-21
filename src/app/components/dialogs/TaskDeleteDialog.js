@@ -15,6 +15,8 @@ export function TaskDeleteDialog({ id, onClose}) {
     <Modal
       show={true}
       aria-labelledby="example-modal-sizes-title-lg"
+      onHide={onClose}
+
     >
       <Modal.Header closeButton>
         <Modal.Title id="example-modal-sizes-title-lg">

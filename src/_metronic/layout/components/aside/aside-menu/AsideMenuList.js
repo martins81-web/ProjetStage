@@ -127,7 +127,7 @@ export function AsideMenuList({ layoutProps }) {
             >
               <NavLink
                 className='menu-link'
-                to='/groupes/groupexxxx/stagiaires'
+              to={'/liste-stagiaires/'+ localStorage.getItem('groupeNb')}
               >
                 <span className='svg-icon menu-icon'>
                   <SVG
@@ -147,7 +147,7 @@ export function AsideMenuList({ layoutProps }) {
               )}`}
               aria-haspopup='true'
             >
-              <NavLink className='menu-link' to='/groupes/groupexxxx/tuteurs'>
+              <NavLink className='menu-link' to={'/tuteurs/'+ localStorage.getItem('groupeNb')} >
                 <span className='svg-icon menu-icon'>
                   <SVG
                     src={toAbsoluteUrl(
@@ -168,7 +168,7 @@ export function AsideMenuList({ layoutProps }) {
             >
               <NavLink
                 className='menu-link'
-                to='/groupes/groupexxxx/groupeEntreprises'
+                to={'/entreprises/'+localStorage.getItem('groupeNb')}
               >
                 <span className='svg-icon menu-icon'>
                   <SVG

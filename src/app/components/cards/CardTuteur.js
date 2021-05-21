@@ -134,4 +134,7 @@ const Wrapper = styled.div`
   .btn-contacter {
     border-radius: 15px;
   }
+  .card{
+    border: none;
+  }
 `;

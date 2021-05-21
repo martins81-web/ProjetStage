@@ -15,6 +15,7 @@ import SVG from 'react-inlinesvg';
 import styled from 'styled-components';
 
 import { toAbsoluteUrl } from '../../_metronic/_helpers';
+import { NewTaskDialog } from './dialogs/NewTaskDialog';
 import { TaskDeleteDialog } from './dialogs/TaskDeleteDialog';
 import { TaskEditDialog } from './dialogs/TaskEditDialog';
 
@@ -29,7 +30,7 @@ const tasks = [
       tutorEval: 5,
       level: 4,
       startDate: '05/31/2021',
-      endDate: '7/31/2021',
+      endDate: '07/31/2021',
     },
     {
         id: 2,
@@ -44,15 +45,27 @@ const tasks = [
       },
   ];
 
+const newTask={
+    name: '',
+    description: '',
+    autoEval: undefined,
+    managerEval: undefined,
+    tutorEval: undefined,
+    level: undefined,
+    startDate: '',
+    endDate: '',
+  };
 
 const DashboardStagiaires = () => {
 
     const [openDeleteDialog, setOpenDeleteDialog]= useState(false);
     const [openEditDialog, setOpenEditDialog]= useState(false);
+    const [openNewDialog, setOpenNewDialog]= useState(false);
 
     const handleClose =()=>{
         setOpenDeleteDialog(false);
         setOpenEditDialog(false);
+        setOpenNewDialog(false);
     };
 
 
@@ -63,7 +76,7 @@ const DashboardStagiaires = () => {
             <Grid item xs={12}>
                 <Grid container justify='space-between' alignItems='center'>
                     <Grid item><h3>Liste des tâches</h3></Grid>
-                    <Grid item><button type="button" className="btn btn-primary">Nouvelle tâche</button></Grid>
+                    <Grid item><button type="button" onClick={()=>setOpenNewDialog(newTask)} className="btn btn-primary">Nouvelle tâche</button></Grid>
                 </Grid>
             </Grid>
             <Grid item xs={12}>
@@ -133,8 +146,9 @@ const DashboardStagiaires = () => {
             </Grid>
         </Grid>
     </Wrapper>
-    { openDeleteDialog !== false && <TaskDeleteDialog  onClose={handleClose} id={openDeleteDialog}/>}
-    { openEditDialog !== false && <TaskEditDialog  onClose={handleClose} task={openEditDialog}/>}
+    { openDeleteDialog && <TaskDeleteDialog  onClose={handleClose} id={openDeleteDialog}/>}
+    { openEditDialog  && <TaskEditDialog  onClose={handleClose} task={openEditDialog}/>}
+    { openNewDialog && <NewTaskDialog  task={openNewDialog} onClose={handleClose}/>}
     </>
   );
 };

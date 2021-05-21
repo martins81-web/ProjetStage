@@ -4,8 +4,8 @@ import { Modal } from 'react-bootstrap';
 import { FormNewEditTask } from '../forms/FormNewEditTask';
 
 
-export function TaskEditDialog({ task, onClose }) {
-  console.log(task);
+export function NewTaskDialog({ onClose, task }) {
+    console.log(task)
   return (
     <Modal
       size="lg"
@@ -14,9 +14,9 @@ export function TaskEditDialog({ task, onClose }) {
       onHide={onClose}
     >
       <Modal.Header closeButton>
-        <Modal.Title id="example-modal-sizes-title-lg">Éditer la tâche {task.name}</Modal.Title>
+        <Modal.Title id="example-modal-sizes-title-lg">Creér nouvelle tâche</Modal.Title>
       </Modal.Header>
-      <FormNewEditTask task={task} onClose={onClose}/>     
+      <FormNewEditTask onClose={onClose} task={task}/>     
     </Modal>
   );
 }

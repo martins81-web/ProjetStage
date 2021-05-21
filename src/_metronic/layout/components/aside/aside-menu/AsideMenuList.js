@@ -109,25 +109,44 @@ export function AsideMenuList({ layoutProps }) {
           <>
             <li className='menu-section '>
               <h4 className='menu-text' style={{ color: 'white' }}>
-              Groupe:&nbsp;
+              Groupe: 
+              {/* {localStorage.getItem('groupeNb')} */}
+              &nbsp;
               {noGroupes.map((noGroupe) => (
-                    getMenuItemActive(
+                getMenuItemActive(
                       '/tableau-de-bord-groupe/groupe/'+noGroupe).includes('menu-item-active') &&  <span> {noGroupe}</span>
               ))}
+              {noGroupes.map((noGroupe) => (
+                getMenuItemActive(
+                      '/liste-stagiaires/groupe/'+noGroupe).includes('menu-item-active') &&  <span> {noGroupe}</span>
+              ))}
+              {noGroupes.map((noGroupe) => (
+                getMenuItemActive(
+                      '/tuteurs/groupe/'+noGroupe).includes('menu-item-active') &&  <span> {noGroupe}</span>
+              ))}
+              {noGroupes.map((noGroupe) => (
+                getMenuItemActive(
+                      '/entreprises/groupe/'+noGroupe).includes('menu-item-active') &&  <span> {noGroupe}</span>
+              ))}
+              {noGroupes.map((noGroupe) => (
+                getMenuItemActive(
+                      '/liste-taches-etudiant/groupe/'+noGroupe).includes('menu-item-active') &&  <span> {noGroupe}</span>
+              ))}
+
               </h4>
               <i className='menu-icon flaticon-more-v2'></i>
             </li>
 
             <li
               className={`menu-item ${getMenuItemActive(
-                '/groupes/groupexxxx/stagiaires',
+                '/liste-stagiaires/groupe/'+ localStorage.getItem('groupeNb'),
                 false
               )}`}
               aria-haspopup='true'
             >
               <NavLink
                 className='menu-link'
-              to={'/liste-stagiaires/'+ localStorage.getItem('groupeNb')}
+              to={'/liste-stagiaires/groupe/'+ localStorage.getItem('groupeNb')}
               >
                 <span className='svg-icon menu-icon'>
                   <SVG
@@ -142,12 +161,12 @@ export function AsideMenuList({ layoutProps }) {
 
             <li
               className={`menu-item ${getMenuItemActive(
-                '/groupes/groupexxxx/tuteurs',
+                '/tuteurs/groupe/'+ localStorage.getItem('groupeNb'),
                 false
               )}`}
               aria-haspopup='true'
             >
-              <NavLink className='menu-link' to={'/tuteurs/'+ localStorage.getItem('groupeNb')} >
+              <NavLink className='menu-link' to={'/tuteurs/groupe/'+ localStorage.getItem('groupeNb')} >
                 <span className='svg-icon menu-icon'>
                   <SVG
                     src={toAbsoluteUrl(
@@ -161,14 +180,14 @@ export function AsideMenuList({ layoutProps }) {
 
             <li
               className={`menu-item ${getMenuItemActive(
-                '/groupes/groupexxxx/groupeEntreprises',
+                '/entreprises/groupe/'+localStorage.getItem('groupeNb'),
                 false
               )}`}
               aria-haspopup='true'
             >
               <NavLink
                 className='menu-link'
-                to={'/entreprises/'+localStorage.getItem('groupeNb')}
+                to={'/entreprises/groupe/'+localStorage.getItem('groupeNb')}
               >
                 <span className='svg-icon menu-icon'>
                   <SVG
@@ -176,6 +195,26 @@ export function AsideMenuList({ layoutProps }) {
                   />
                 </span>
                 <span className='menu-text'>Entreprises</span>
+              </NavLink>
+            </li>
+            
+            <li
+              className={`menu-item ${getMenuItemActive(
+                '/liste-taches-etudiant/groupe/'+localStorage.getItem('groupeNb'),
+                false
+              )}`}
+              aria-haspopup='true'
+            >
+              <NavLink
+                className='menu-link'
+                to={'/liste-taches-etudiant/groupe/'+localStorage.getItem('groupeNb')}
+              >
+                <span className='svg-icon menu-icon'>
+                  <SVG
+                    src={toAbsoluteUrl('/media/svg/icons/Design/Bezier-curve.svg')}
+                  />
+                </span>
+                <span className='menu-text'>Tâches</span>
               </NavLink>
             </li>
 

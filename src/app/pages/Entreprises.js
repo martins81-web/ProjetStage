@@ -30,7 +30,7 @@ export const Entreprises = () => {
       <a href='/' className=' text-dark font-weight-bolder mt-2 '>
         3 Entreprises
         <br />
-        <span className='text-muted numeroGroupe'>#1080</span>
+        <span className='text-muted numeroGroupe'>{'#'+localStorage.getItem('groupeNb')}</span>
       </a>
     </div>
     {/* Stagiaires */}
@@ -43,7 +43,7 @@ export const Entreprises = () => {
       <a href='/' className=' text-dark font-weight-bolder mt-2 '>
         9 Stagiaires
         <br />
-        <span className='text-muted numeroGroupe'>#1080</span>
+        <span className='text-muted numeroGroupe'>{'#'+localStorage.getItem('groupeNb')}</span>
       </a>
     </div>
   </Grid>);

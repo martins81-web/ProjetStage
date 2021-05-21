@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { DashboardGroup } from '../../pages/DashboardGroup';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { DashboardGroup } from '../../pages/DashboardGroup';
 
 const CardGroupe = (props) => {
   //   const { title, subTitle, debut, fin, nbStagiaires, type } = groupe;
@@ -38,8 +39,8 @@ const CardGroupe = (props) => {
               </div>
             </div>
           </div>
-          <Link to={'/tableau-de-bord-groupe/' + props.title}>
-            <Button variant='danger' className='button'>
+          <Link to={'/tableau-de-bord-groupe/groupe/' + props.title}>
+            <Button variant='danger' className='button' onClick={()=>localStorage.setItem('groupeNb', props.title)}  >
               Accéder
             </Button>
           </Link>

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useEffect } from 'react';
 import SVG from 'react-inlinesvg';
 import { useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
@@ -8,8 +8,12 @@ import { NavLink } from 'react-router-dom';
 import { checkIsActive, toAbsoluteUrl } from '../../../../_helpers';
 
 const noGroupes = [1038, 1011, 988, 1144, 1609, 1034];
+
+
+
 export function AsideMenuList({ layoutProps }) {
   const location = useLocation();
+ 
   const getMenuItemActive = (url, hasSubmenu = false) => {
     return checkIsActive(location, url)
       ? ` ${!hasSubmenu &&
@@ -17,16 +21,19 @@ export function AsideMenuList({ layoutProps }) {
       : '';
   };
 
+  
+
+
   return (
     <>
       {/* begin::Menu Nav */}
       <ul className={`menu-nav ${layoutProps.ulClasses}`}>
         {/*begin::1 Level*/}
-        <li
+        <li 
           className={`menu-item ${getMenuItemActive('/dashboard', false)}`}
           aria-haspopup='true'
         >
-          <NavLink className='menu-link' to='/dashboard'>
+          <NavLink className='menu-link' to='/dashboard' >
             <span className='svg-icon menu-icon'>
               <SVG src={toAbsoluteUrl('/media/svg/icons/Home/Home.svg')} />
             </span>
@@ -53,7 +60,7 @@ export function AsideMenuList({ layoutProps }) {
                 )}
               />
             </span>
-            {location.pathname.includes('groupes') ? (
+            {location.pathname.includes('/groupe/') ? (
               <span className='menu-text'>Changer de groupe</span>
             ) : (
               <span className='menu-text'>Sélectionner un groupe</span>
@@ -71,21 +78,22 @@ export function AsideMenuList({ layoutProps }) {
               </li>
 
               {/*begin::Map numero Groupe*/}
-              {noGroupes.map((noGroupes) => (
-                <li
+              {noGroupes.map((noGroupe) => (
+                <li key={'groupeNb:'+noGroupe}
                   className={`menu-item ${getMenuItemActive(
-                    '/groupes/groupe1'
+                    '/tableau-de-bord-groupe/groupe/'+noGroupe
                   )}`}
                   aria-haspopup='true'
+                  onClick={()=>localStorage.setItem('groupeNb', noGroupe) }
                 >
                   <NavLink
                     className='menu-link'
-                    to={'/tableau-de-bord-groupe/' + noGroupes}
+                    to={'/tableau-de-bord-groupe/groupe/' + noGroupe}
                   >
                     <i className='menu-bullet menu-bullet-dot'>
                       <span />
                     </i>
-                    <span className='menu-text'>Groupe - {noGroupes}</span>
+                    <span className='menu-text'>Groupe - {noGroupe}</span>
                   </NavLink>
                 </li>
               ))}
@@ -97,11 +105,15 @@ export function AsideMenuList({ layoutProps }) {
 
         {/* Custom */}
         {/* begin::section */}
-        {location.pathname.includes('groupes') && (
+        {location.pathname.includes('/groupe/') && (
           <>
             <li className='menu-section '>
               <h4 className='menu-text' style={{ color: 'white' }}>
-                Groupe: {'xxxx'}
+              Groupe:&nbsp;
+              {noGroupes.map((noGroupe) => (
+                    getMenuItemActive(
+                      '/tableau-de-bord-groupe/groupe/'+noGroupe).includes('menu-item-active') &&  <span> {noGroupe}</span>
+              ))}
               </h4>
               <i className='menu-icon flaticon-more-v2'></i>
             </li>

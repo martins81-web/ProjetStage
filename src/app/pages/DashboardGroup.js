@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import { useMediaQuery } from '@material-ui/core/';
 import { useTheme } from '@material-ui/core/styles';
 import React from 'react';
-import { Card, Image, Button } from 'react-bootstrap';
+import { Button, Card, Image } from 'react-bootstrap';
 
 import { useSubheader } from '../../_metronic/layout';
 import { ActivitesRecentes } from '../components/ActivitesRecentes';
@@ -20,7 +20,7 @@ export const DashboardGroup = () => {
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
 
-  console.log(matchesMD);
+  //console.log(matchesMD);
   return (
     <>
       <Grid container>

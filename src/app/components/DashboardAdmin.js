@@ -156,8 +156,8 @@ const DashboardAdmin = () => {
                     >
                       Tous les stagiaires
                     </Dropdown.Item>
-                    {groupe.map((groupe) => (
-                      <Dropdown.Item>Groupe #{groupe.title}</Dropdown.Item>
+                    {groupe.map((groupe,i) => (
+                      <Dropdown.Item key={groupe+i}>Groupe #{groupe.title}</Dropdown.Item>
                     ))}
                   </SplitButton>
                 </Grid>

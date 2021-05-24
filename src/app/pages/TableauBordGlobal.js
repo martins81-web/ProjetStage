@@ -9,7 +9,7 @@ import { nvAcces } from '../misc/enum';
 
 const TableauBordGlobal = () => {
     const { user } = useSelector((state) => state.auth);
-    const nvAccesUser = user.roles[0];
+    const nvAccesUser = user.role;
 
     return ( <>
 

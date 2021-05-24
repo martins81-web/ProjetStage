@@ -1,7 +1,8 @@
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import { put, takeLatest } from "redux-saga/effects";
-import { getUserByToken } from "./authCrud";
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { put, takeLatest } from 'redux-saga/effects';
+
+import { getUserByToken } from './authCrud';
 
 export const actionTypes = {
   Login: "[Login] Action",
@@ -23,7 +24,7 @@ export const reducer = persistReducer(
     switch (action.type) {
       case actionTypes.Login: {
         const { authToken } = action.payload;
-
+        
         return { authToken, user: undefined };
       }
 

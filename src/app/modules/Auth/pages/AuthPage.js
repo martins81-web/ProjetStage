@@ -21,7 +21,7 @@ export function AuthPage() {
   const theme = useTheme();
 
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
-  console.log(matches)
+  //console.log(matches)
   return (
     <>
       <Grid container className='flex-root'>

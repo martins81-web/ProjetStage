@@ -24,7 +24,7 @@ export default function BasePage() {
     location.pathname.includes('/groupe/') && localStorage.setItem('groupeNb', location.pathname.substr(location.pathname.length - 4));
     
     getUsersListByRole('002')
-          .then( response => console.log(response))
+          .then( response => console.log(response.data))
           .catch(() => {
 
           });

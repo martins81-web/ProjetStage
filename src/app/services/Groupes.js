@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { API_URL } from './API';
+import { API_URL } from './Api';
 import interceptorsSetup from './Interceptor';
 
 

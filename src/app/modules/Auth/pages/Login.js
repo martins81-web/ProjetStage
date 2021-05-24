@@ -9,6 +9,8 @@ import * as Yup from 'yup';
 import { login } from '../_redux/authCrud';
 import * as auth from '../_redux/authRedux';
 
+import {getAllGroups} from '../../../services/Groupes';
+
 /*
   INTL (i18n) docs:
   https://github.com/formatjs/react-intl/blob/master/docs/Components.md#formattedmessage
@@ -80,8 +82,10 @@ function Login(props) {
             props.setUser(response.data.user);
             //token to localstorage
             localStorage.setItem('jwt', response.data.token);
+            localStorage.setItem('role', response.data.user.role);
             //console.log(accessToken)
           })
+
           .catch(() => {
             disableLoading();
             setSubmitting(false);
@@ -92,6 +96,14 @@ function Login(props) {
             );
           });
       }, 1000);
+      // Get groups data if role set to Admin
+      var role = localStorage.getItem('role')
+      if(role== '001'){
+        getAllGroups()
+  .then(reponse=> {
+    localStorage.setItem('arrayOfGroupe', JSON.stringify(reponse.data))
+  })
+      }
     },
   });
 

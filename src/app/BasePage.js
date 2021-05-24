@@ -14,7 +14,7 @@ import { ListeTachesEtudiant } from './pages/ListeTachesEtudiant';
 import { MyPage } from './pages/MyPage';
 import { TacheDetails } from './pages/TacheDetails';
 import { Tuteurs } from './pages/Tuteurs';
-import { getUsersListByRole } from './services/Users';
+import { getTasksList } from './services/Tasks';
 
 
 export default function BasePage() {
@@ -23,7 +23,7 @@ export default function BasePage() {
   useEffect(() => {
     location.pathname.includes('/groupe/') && localStorage.setItem('groupeNb', location.pathname.substr(location.pathname.length - 4));
     
-    getUsersListByRole('002')
+    getTasksList()
           .then( response => console.log(response.data))
           .catch(() => {
 

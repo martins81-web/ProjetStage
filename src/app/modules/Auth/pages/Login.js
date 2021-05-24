@@ -79,7 +79,7 @@ function Login(props) {
             //setsUser
             props.setUser(response.data.user);
             //token to localstorage
-            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('jwt', response.data.token);
             //console.log(accessToken)
           })
           .catch(() => {

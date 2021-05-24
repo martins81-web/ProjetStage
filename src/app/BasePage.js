@@ -14,12 +14,21 @@ import { ListeTachesEtudiant } from './pages/ListeTachesEtudiant';
 import { MyPage } from './pages/MyPage';
 import { TacheDetails } from './pages/TacheDetails';
 import { Tuteurs } from './pages/Tuteurs';
+import { getUsersListByRole } from './services/Users';
+
 
 export default function BasePage() {
   const location = useLocation();
 
   useEffect(() => {
     location.pathname.includes('/groupe/') && localStorage.setItem('groupeNb', location.pathname.substr(location.pathname.length - 4));
+    
+    getUsersListByRole('002')
+          .then( response => console.log(response.data))
+          .catch(() => {
+
+          });
+;
 
   }, []) // [] - is required if you need only one call
   // https://reactjs.org/docs/hooks-reference.html#useeffect

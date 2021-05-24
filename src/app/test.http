@@ -1,7 +1,6 @@
-POST https://stagyx-api.herokuapp.com/api/public/user/login
+GET https://stagyx-api.herokuapp.com/api/public/user/login
 Content-Type: application/x-www-form-urlencoded
 
 {
-    "email": "hugo.cloutier@cegeptr.qc.ca",
-    "password": "Admin123!"
+    "role": "002"
 }

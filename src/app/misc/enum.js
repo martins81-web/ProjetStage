@@ -1,6 +1,6 @@
  export var nvAcces = {
-    coordonnateur:1,
-    tuteur:2,
-    entreprise:3,
-    stagiaire:4
+    coordonnateur:'001',
+    tuteur:'002',
+    entreprise:'003',
+    stagiaire:'004'
 }

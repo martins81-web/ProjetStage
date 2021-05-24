@@ -74,9 +74,13 @@ function Login(props) {
       enableLoading();
       setTimeout(() => {
         login(values.email, values.password)
-          .then(({ data: { accessToken } }) => {
-            disableLoading();
-            props.login(accessToken);
+          .then( response => {
+            console.log(response.data);
+            //setsUser
+            props.setUser(response.data.user);
+            //token to localstorage
+            localStorage.setItem('token', response.data.token);
+            //console.log(accessToken)
           })
           .catch(() => {
             disableLoading();

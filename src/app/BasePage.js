@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Suspense, useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { Redirect, Switch } from 'react-router-dom';
@@ -19,8 +20,10 @@ export default function BasePage() {
 
   useEffect(() => {
     location.pathname.includes('/groupe/') && localStorage.setItem('groupeNb', location.pathname.substr(location.pathname.length - 4));
+
   }, []) // [] - is required if you need only one call
   // https://reactjs.org/docs/hooks-reference.html#useeffect
+
 
   return (
     <Suspense fallback={<LayoutSplashScreen />}>

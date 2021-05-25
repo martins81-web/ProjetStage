@@ -11,7 +11,7 @@ import { TableauListeStagiaires } from '../components/TableauListeStagiaires';
 
 export const ListeStagiaires = () => {
   const suhbeader = useSubheader();
-  suhbeader.setTitle('Liste des stagiaires');
+  suhbeader.setTitle('Liste des stagiaires du groupe '+ JSON.parse(localStorage.getItem('groupe')).name);
 
   const theme = useTheme();
 

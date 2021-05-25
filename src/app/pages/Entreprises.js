@@ -13,7 +13,7 @@ import { InformationsGroupe } from '../components/InformationsGroupe';
 
 export const Entreprises = () => {
   const suhbeader = useSubheader();
-  suhbeader.setTitle('Liste des stagiaires');
+  suhbeader.setTitle('Entreprises du groupe ' + JSON.parse(localStorage.getItem('groupe')).name );
 
   const theme = useTheme();
   
@@ -30,7 +30,7 @@ export const Entreprises = () => {
       <a href='/' className=' text-dark font-weight-bolder mt-2 '>
         3 Entreprises
         <br />
-        <span className='text-muted numeroGroupe'>{'#'+localStorage.getItem('groupeNb')}</span>
+        <span className='text-muted numeroGroupe'>{'#'+JSON.parse(localStorage.getItem('groupe')).name}</span>
       </a>
     </div>
     {/* Stagiaires */}
@@ -43,7 +43,7 @@ export const Entreprises = () => {
       <a href='/' className=' text-dark font-weight-bolder mt-2 '>
         9 Stagiaires
         <br />
-        <span className='text-muted numeroGroupe'>{'#'+localStorage.getItem('groupeNb')}</span>
+        <span className='text-muted numeroGroupe'>{'#'+JSON.parse(localStorage.getItem('groupe')).name}</span>
       </a>
     </div>
   </Grid>);

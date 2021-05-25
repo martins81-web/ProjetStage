@@ -56,7 +56,7 @@ export function TableauListeStagiaires({ className }) {
                     <span></span>
                   </label>
                 </th>
-                <th colspan="2">Stagiaires</th>
+                <th colSpan="2">Stagiaires</th>
                 <th>Hôte</th>
                 <th>Évaluations</th>
                 <th className='text-right'>Actions</th>

@@ -1,25 +1,37 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SVG from 'react-inlinesvg';
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
+import { getAllGroups } from '../../../../../app/services/Groupes';
 import { checkIsActive, toAbsoluteUrl } from '../../../../_helpers';
-
-const noGroupes = [1038, 1011, 988, 1144, 1609, 1034];
-
-
 
 export function AsideMenuList({ layoutProps }) {
   const location = useLocation();
- 
+  const { user } = useSelector((state) => state.auth);
+  const [groups, setGroups] = useState([]);
+
   const getMenuItemActive = (url, hasSubmenu = false) => {
     return checkIsActive(location, url)
       ? ` ${!hasSubmenu &&
           'menu-item-active'} menu-item-open menu-item-not-hightlighted`
       : '';
   };
+
+  useEffect(() => {
+    if(user.role=== '001'){
+      getAllGroups()
+        .then(reponse=> {
+          localStorage.setItem('arrayOfGroupe', JSON.stringify(reponse.data))
+          setGroups(reponse.data);
+        })
+    }
+
+  }, [])
+      
 
   
 
@@ -78,22 +90,22 @@ export function AsideMenuList({ layoutProps }) {
               </li>
 
               {/*begin::Map numero Groupe*/}
-              {noGroupes.map((noGroupe) => (
-                <li key={'groupeNb:'+noGroupe}
+              {groups.length>0 && groups.map((groupe) => (
+                <li key={'groupeNb:'+groupe.name}
                   className={`menu-item ${getMenuItemActive(
-                    '/tableau-de-bord-groupe/groupe/'+noGroupe
+                    '/tableau-de-bord-groupe/groupe/'+groupe.name
                   )}`}
                   aria-haspopup='true'
-                  onClick={()=>localStorage.setItem('groupeNb', noGroupe) }
+                  onClick={()=>localStorage.setItem('groupe', JSON.stringify(groupe)) }
                 >
                   <NavLink
                     className='menu-link'
-                    to={'/tableau-de-bord-groupe/groupe/' + noGroupe}
+                    to={'/tableau-de-bord-groupe/groupe/' + groupe.name}
                   >
                     <i className='menu-bullet menu-bullet-dot'>
                       <span />
                     </i>
-                    <span className='menu-text'>Groupe - {noGroupe}</span>
+                    <span className='menu-text'>Groupe - {groupe.name}</span>
                   </NavLink>
                 </li>
               ))}
@@ -112,25 +124,25 @@ export function AsideMenuList({ layoutProps }) {
               Groupe: 
               {/* {localStorage.getItem('groupeNb')} */}
               &nbsp;
-              {noGroupes.map((noGroupe) => (
+              {groups.length>0 && groups.map((groupe) => (
                 getMenuItemActive(
-                      '/tableau-de-bord-groupe/groupe/'+noGroupe).includes('menu-item-active') &&  <span> {noGroupe}</span>
+                      '/tableau-de-bord-groupe/groupe/'+groupe.name).includes('menu-item-active') &&  <span> {groupe.name}</span>
               ))}
-              {noGroupes.map((noGroupe) => (
+              {groups.length>0 && groups.map((groupe) => (
                 getMenuItemActive(
-                      '/liste-stagiaires/groupe/'+noGroupe).includes('menu-item-active') &&  <span> {noGroupe}</span>
+                      '/liste-stagiaires/groupe/'+groupe.name).includes('menu-item-active') &&  <span> {groupe.name}</span>
               ))}
-              {noGroupes.map((noGroupe) => (
+              {groups.length>0 && groups.map((groupe) => (
                 getMenuItemActive(
-                      '/tuteurs/groupe/'+noGroupe).includes('menu-item-active') &&  <span> {noGroupe}</span>
+                      '/tuteurs/groupe/'+groupe.name).includes('menu-item-active') &&  <span> {groupe.name}</span>
               ))}
-              {noGroupes.map((noGroupe) => (
+              {groups.length>0 && groups.map((groupe) => (
                 getMenuItemActive(
-                      '/entreprises/groupe/'+noGroupe).includes('menu-item-active') &&  <span> {noGroupe}</span>
+                      '/entreprises/groupe/'+groupe.name).includes('menu-item-active') &&  <span> {groupe.name}</span>
               ))}
-              {noGroupes.map((noGroupe) => (
+              {groups.length>0 && groups.map((groupe) => (
                 getMenuItemActive(
-                      '/liste-taches-etudiant/groupe/'+noGroupe).includes('menu-item-active') &&  <span> {noGroupe}</span>
+                      '/liste-taches-etudiant/groupe/'+groupe.name).includes('menu-item-active') &&  <span> {groupe.name}</span>
               ))}
 
               </h4>

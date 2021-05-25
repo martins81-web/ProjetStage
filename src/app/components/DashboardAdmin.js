@@ -92,6 +92,8 @@ const DashboardAdmin = () => {
     'Envoyer à tous les stagiaires'
   );
 
+  const [groups, setGroups] = useState(JSON.parse(localStorage.getItem('arrayOfGroupe')));
+
   return (
     <Wrapper>
       <Grid container>
@@ -107,16 +109,11 @@ const DashboardAdmin = () => {
             </Grid>
             <Grid item xs={12} className='marginSections'>
               <Grid container spacing={5}>
-                {groupe.map((item, i) => (
-                  <Grid key={item + i} item xs={12} sm={6} md={4} lg={4}>
+                {groups.length>0 && groups.map((groupe, i) => (
+                  <Grid key={groupe + i} item xs={12} sm={6} md={4} lg={4}>
                     <CardGroupe
                       key={i}
-                      title={item.title}
-                      subTitle={item.subTitle}
-                      debut={item.debut}
-                      fin={item.fin}
-                      nbStagiaires={item.nbStagiaires}
-                      type={item.type}
+                      groupe={groupe}
                     />
                   </Grid>
                 ))}

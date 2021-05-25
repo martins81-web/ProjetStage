@@ -21,7 +21,7 @@ export const InformationsGroupe = () => {
         variant='transparent-white'
       >
          {groups && groups.length>0 && groups.map((groupe, i) => (
-        <Dropdown.Item as='button' onClick={
+        <Dropdown.Item as='button' key={groupe+i+'dropdown_info'} onClick={
           ()=>{localStorage.setItem('groupe', JSON.stringify(groupe)) 
           history.push('/tableau-de-bord-groupe/groupe/' + groupe.name)
         }} >

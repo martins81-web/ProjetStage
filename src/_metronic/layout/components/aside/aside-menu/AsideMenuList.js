@@ -192,14 +192,14 @@ export function AsideMenuList({ layoutProps }) {
 
             <li
               className={`menu-item ${getMenuItemActive(
-                '/entreprises/groupe/'+localStorage.getItem('groupeNb'),
+                '/entreprises/groupe/'+JSON.parse(localStorage.getItem('groupe')).name,
                 false
               )}`}
               aria-haspopup='true'
             >
               <NavLink
                 className='menu-link'
-                to={'/entreprises/groupe/'+localStorage.getItem('groupeNb')}
+                to={'/entreprises/groupe/'+JSON.parse(localStorage.getItem('groupe')).name}
               >
                 <span className='svg-icon menu-icon'>
                   <SVG
@@ -422,7 +422,7 @@ export function AsideMenuList({ layoutProps }) {
         {/*begin::1 Level*/}
         <li
           className={`menu-item menu-item-submenu ${getMenuItemActive(
-            '/entreprises',
+            '/allEntreprises',
             true
           )}`}
           aria-haspopup='true'
@@ -449,11 +449,11 @@ export function AsideMenuList({ layoutProps }) {
               {/*begin::2 Level*/}
               <li
                 className={`menu-item ${getMenuItemActive(
-                  '/entreprises/ajout'
+                  '/allEntreprises/ajout'
                 )}`}
                 aria-haspopup='true'
               >
-                <NavLink className='menu-link' to='/entreprises/ajout'>
+                <NavLink className='menu-link' to='/allEntreprises/ajout'>
                   <span className='menu-text'>Ajouter une entreprise</span>
                 </NavLink>
               </li>
@@ -462,11 +462,11 @@ export function AsideMenuList({ layoutProps }) {
               {/*begin::2 Level*/}
               <li
                 className={`menu-item ${getMenuItemActive(
-                  '/entreprises/list'
+                  '/allEntreprises/list'
                 )}`}
                 aria-haspopup='true'
               >
-                <NavLink className='menu-link' to='/entreprises/list'>
+                <NavLink className='menu-link' to='/allEntreprises/list'>
                   <span className='menu-text'>Toutes les entreprises</span>
                 </NavLink>
               </li>

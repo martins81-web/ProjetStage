@@ -13,7 +13,7 @@ import { InformationsGroupe } from '../components/InformationsGroupe';
 
 export const Entreprises = () => {
   const suhbeader = useSubheader();
-  suhbeader.setTitle('Liste des stagiaires');
+  suhbeader.setTitle('Entreprises du groupe ' + JSON.parse(localStorage.getItem('groupe')).name );
 
   const theme = useTheme();
   

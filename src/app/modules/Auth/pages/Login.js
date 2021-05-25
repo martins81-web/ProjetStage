@@ -81,6 +81,7 @@ function Login(props) {
             props.setUser(response.data.user);
             //token to localstorage
             localStorage.setItem('jwt', response.data.token);
+            localStorage.setItem('role', response.data.user.role);
             //console.log(accessToken)
           })
 

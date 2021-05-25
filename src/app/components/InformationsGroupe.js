@@ -10,11 +10,12 @@ export const InformationsGroupe = () => {
   const [groupe, setGroup] = useState(JSON.parse(localStorage.getItem('groupe')));
   const [groups, setGroups] = useState(JSON.parse(localStorage.getItem('arrayOfGroupe')));
   const history= useHistory();
-
-  return (
-    groupe &&
-    <Wrapper className='bg-danger px-3 pt-2 text-white'>
-      <DropdownButton
+  // Affichage du dropdown si le user est admin 
+  const changeGroupAccess = () =>{
+    const role = localStorage.getItem('role')
+    if(role == '001'){
+      return (
+        <DropdownButton
         id='dropdown-item-button'
         title='Changer de groupe'
         className='text-right text-white pb-5 '
@@ -29,6 +30,15 @@ export const InformationsGroupe = () => {
           </Dropdown.Item>
         ))}
       </DropdownButton>
+      )
+    }
+  }
+  
+  return (
+    groupe &&
+    <Wrapper className='bg-danger px-3 pt-2 text-white'>
+      {changeGroupAccess()}
+
       <p>
         Debut: <span></span>
       </p>

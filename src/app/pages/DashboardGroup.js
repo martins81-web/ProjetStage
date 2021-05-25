@@ -106,7 +106,7 @@ export const DashboardGroup = () => {
               <Grid container className='pt-5'>
                 {/* Tuteurs */}
                 <Grid item xs={12}>
-                  <h1 className='text-muted'>Tuteurs du groupes : {'#'+localStorage.getItem('groupeNb')}</h1>
+                  <h1 className='text-muted'>Tuteurs du groupes : {'#'+JSON.parse(localStorage.getItem('groupe')).name} </h1>
                 </Grid>
                 <Grid item xs={12}>
                   <Grid container spacing={2}>

@@ -1,69 +1,16 @@
 import { Box, Grid } from '@material-ui/core';
 import JoditEditor from 'jodit-react';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ButtonGroup, Dropdown, SplitButton } from 'react-bootstrap';
 import SVG from 'react-inlinesvg';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import { toAbsoluteUrl } from '../../_metronic/_helpers';
 import CardGroupe from '../components/cards/CardGroupe';
+import { getAllGroups } from '../services/Groupes';
 
-const groupe = [
-  {
-    id: 1,
-    title: '1038',
-    subTitle: 'Genie mécanique NW.1045',
-    debut: '15-06-2021',
-    fin: '15-05-2021',
-    nbStagiaires: '17',
-    type: 'Alternance travail-études',
-  },
-  {
-    id: 2,
-    title: '1011',
-    subTitle: 'Genie mécanique NW.1045',
-    debut: '15-06-2021',
-    fin: '15-05-2021',
-    nbStagiaires: '17',
-    type: 'Alternance travail-études',
-  },
-  {
-    id: 3,
-    title: '988',
-    subTitle: 'Genie mécanique NW.1045',
-    debut: '15-06-2021',
-    fin: '15-05-2021',
-    nbStagiaires: '17',
-    type: 'Alternance travail-études',
-  },
-  {
-    id: 4,
-    title: '1144',
-    subTitle: 'Genie mécanique NW.1045',
-    debut: '15-06-2021',
-    fin: '15-05-2021',
-    nbStagiaires: '17',
-    type: 'A distance',
-  },
-  {
-    id: 5,
-    title: '1609',
-    subTitle: 'Genie mécanique NW.1045',
-    debut: '15-06-2021',
-    fin: '15-05-2021',
-    nbStagiaires: '17',
-    type: 'Temps partiel',
-  },
-  {
-    id: 6,
-    title: '1034',
-    subTitle: 'Genie mécanique NW.1045',
-    debut: '15-06-2021',
-    fin: '15-05-2021',
-    nbStagiaires: '17',
-    type: 'Presentiel',
-  },
-];
+
 
 const sessions = [
   'Hiver 2021',
@@ -79,6 +26,8 @@ const sessions = [
 const DashboardAdmin = () => {
   const editor = useRef(null);
   const [content, setContent] = useState('');
+  const { user } = useSelector((state) => state.auth);
+  const [groups, setGroups] = useState([]);
 
   const config = {
     readonly: false,
@@ -92,7 +41,17 @@ const DashboardAdmin = () => {
     'Envoyer à tous les stagiaires'
   );
 
-  const [groups, setGroups] = useState(JSON.parse(localStorage.getItem('arrayOfGroupe')));
+  useEffect(() => {
+    if(user.role=== '001'){
+      getAllGroups()
+        .then(reponse=> {
+          setGroups(reponse.data);
+        })
+    }
+
+  }, [])
+      
+
 
   return (
     <Wrapper>
@@ -109,7 +68,7 @@ const DashboardAdmin = () => {
             </Grid>
             <Grid item xs={12} className='marginSections'>
               <Grid container spacing={5}>
-                {groups.length>0 && groups.map((groupe, i) => (
+                {groups && groups.length>0 && groups.map((groupe, i) => (
                   <Grid key={groupe + i} item xs={12} sm={6} md={4} lg={4}>
                     <CardGroupe
                       key={i}
@@ -153,8 +112,14 @@ const DashboardAdmin = () => {
                     >
                       Tous les stagiaires
                     </Dropdown.Item>
-                    {groupe.map((groupe,i) => (
-                      <Dropdown.Item key={groupe+i}>Groupe #{groupe.title}</Dropdown.Item>
+                    {groups && groups.length>0 && groups.map((groupe, i) => (
+                      <Dropdown.Item key={groupe+i+'message'}
+                        onClick={() =>
+                          setButtonMessageValue('Envoyer au groupe '+ groupe.name )
+                        }
+                        >
+                          Groupe #{groupe.name}
+                          </Dropdown.Item>
                     ))}
                   </SplitButton>
                 </Grid>

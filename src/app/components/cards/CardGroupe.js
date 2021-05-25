@@ -16,31 +16,31 @@ const CardGroupe = (props) => {
             <Card.Title>
               <h3>
                 {/* {this.props.groupe.title} */}
-                <b>GROUPE #{props.title}</b>
+                <b>GROUPE #{props.groupe.name}</b>
               </h3>
             </Card.Title>
-            <Card.Subtitle className='subTitle'>{props.subTitle}</Card.Subtitle>
+            <Card.Subtitle className='subTitle'>{'subTitle'}</Card.Subtitle>
             <div className='mt-4'>
               <div>
                 <b>Début:</b>
-                {props.debut}
+                {'debut'}
               </div>
               <div>
                 <b>Fin:</b>
-                {props.fin}
+                {'fin'}
               </div>
               <div>
                 <b>Stagiaires:</b>
-                {props.nbStagiaires}
+                {'nbStagiaires'}
               </div>
               <div>
                 <b>Type:</b>
-                {props.type}
+                {'type'}
               </div>
             </div>
           </div>
-          <Link to={'/tableau-de-bord-groupe/groupe/' + props.title}>
-            <Button variant='danger' className='button' onClick={()=>localStorage.setItem('groupeNb', props.title)}  >
+          <Link to={'/tableau-de-bord-groupe/groupe/' + props.groupe.name}>
+            <Button variant='danger' className='button' onClick={()=>localStorage.setItem('groupe', JSON.stringify(props.groupe))}  >
               Accéder
             </Button>
           </Link>

@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
@@ -19,23 +20,20 @@ const CardGroupe = (props) => {
                 <b>GROUPE #{props.groupe.name}</b>
               </h3>
             </Card.Title>
-            <Card.Subtitle className='subTitle'>{'subTitle'}</Card.Subtitle>
+            <Card.Subtitle className='subTitle'>{props.groupe.schedule}</Card.Subtitle>
             <div className='mt-4'>
               <div>
-                <b>Début:</b>
-                {'debut'}
+                <b>Début: </b>
+                {format(new Date(props.groupe.startDate), 'PPPP')}
               </div>
               <div>
-                <b>Fin:</b>
-                {'fin'}
+                <b>Fin: </b>
+                {format(new Date(props.groupe.endDate), 'PPPP')}
               </div>
+              
               <div>
-                <b>Stagiaires:</b>
-                {'nbStagiaires'}
-              </div>
-              <div>
-                <b>Type:</b>
-                {'type'}
+                <b>Type: </b>
+                {props.groupe.type}
               </div>
             </div>
           </div>

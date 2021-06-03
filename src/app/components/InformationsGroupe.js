@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import React, { useState } from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
@@ -5,10 +6,10 @@ import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 
-
 export const InformationsGroupe = () => {
   const [groupe, setGroup] = useState(JSON.parse(localStorage.getItem('groupe')));
   const [groups, setGroups] = useState(JSON.parse(localStorage.getItem('arrayOfGroupe')));
+  
   const history= useHistory();
   // Affichage du dropdown si le user est admin 
   const changeGroupAccess = () =>{
@@ -23,8 +24,10 @@ export const InformationsGroupe = () => {
       >
          {groups && groups.length>0 && groups.map((groupe, i) => (
         <Dropdown.Item as='button' key={groupe+i+'dropdown_info'} onClick={
-          ()=>{localStorage.setItem('groupe', JSON.stringify(groupe)) 
+          ()=>{
+            localStorage.setItem('groupe', JSON.stringify(groupe)) 
           history.push('/tableau-de-bord-groupe/groupe/' + groupe.name)
+          setGroup(groupe);
         }} >
               Groupe - {groupe.name}
           </Dropdown.Item>
@@ -40,10 +43,10 @@ export const InformationsGroupe = () => {
       {changeGroupAccess()}
 
       <p>
-        Debut: <span></span>
+        Debut: <span> {format(new Date(groupe.startDate), 'PPPP')}</span>
       </p>
       <p>
-        Fin: <span></span>
+        Fin: <span> {format(new Date(groupe.endDate), 'PPPP')}</span>
       </p>
       <p>
         Session: <span></span>
@@ -52,7 +55,7 @@ export const InformationsGroupe = () => {
         Stagiaires: <span></span>
       </p>
       <p>
-        Type: <span></span> 
+        Type: <span> {groupe.type}</span> 
       </p>
       <h1 className='text-right mb-0'>{'#'+groupe.name}</h1>
       

@@ -77,7 +77,7 @@ export function getInitLayoutConfig() {
         theme: "light", // light|dark
         fixed: {
           desktop: true,
-          mobile: true,
+          mobile: false,
         },
       },
       menu: {

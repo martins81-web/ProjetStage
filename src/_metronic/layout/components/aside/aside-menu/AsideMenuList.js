@@ -217,7 +217,7 @@ export function AsideMenuList({ layoutProps }) {
               )}`}
               aria-haspopup='true'
             >
-              <NavLink
+              <p
                 className='menu-link'
                 to={'/liste-taches-etudiant/groupe/'+localStorage.getItem('groupeNb')}
               >
@@ -227,7 +227,7 @@ export function AsideMenuList({ layoutProps }) {
                   />
                 </span>
                 <span className='menu-text'>Tâches</span>
-              </NavLink>
+              </p>
             </li>
 
             <li
@@ -237,8 +237,8 @@ export function AsideMenuList({ layoutProps }) {
               )}`}
               aria-haspopup='true'
             >
-              <NavLink
-                className='menu-link'
+              <p
+                className='menu-link '
                 to='/groupes/groupexxxx/evaluations'
               >
                 <span className='svg-icon menu-icon'>
@@ -248,8 +248,8 @@ export function AsideMenuList({ layoutProps }) {
                     )}
                   />
                 </span>
-                <span className='menu-text'>Évaluations</span>
-              </NavLink>
+                <span className='menu-text' >Évaluations</span>
+              </p>
             </li>
 
             <li
@@ -259,7 +259,7 @@ export function AsideMenuList({ layoutProps }) {
               )}`}
               aria-haspopup='true'
             >
-              <NavLink
+              <p
                 className='menu-link'
                 to='/groupes/groupexxxx/raportsDeStage'
               >
@@ -271,7 +271,7 @@ export function AsideMenuList({ layoutProps }) {
                   />
                 </span>
                 <span className='menu-text'>Rapports de stage</span>
-              </NavLink>
+              </p>
             </li>
 
             <li
@@ -281,7 +281,7 @@ export function AsideMenuList({ layoutProps }) {
               )}`}
               aria-haspopup='true'
             >
-              <NavLink
+              <p
                 className='menu-link'
                 to='/groupes/groupexxxx/parametresDuStage'
               >
@@ -293,7 +293,7 @@ export function AsideMenuList({ layoutProps }) {
                   />
                 </span>
                 <span className='menu-text'>Paramètres du stage</span>
-              </NavLink>
+              </p>
             </li>
           </>
         )}
@@ -320,41 +320,14 @@ export function AsideMenuList({ layoutProps }) {
           aria-haspopup='true'
           data-menu-toggle='hover'
         >
-          <NavLink className='menu-link menu-toggle' to='/calendrier'>
+          <p className='menu-link ' to='/calendrier'>
             <span className='svg-icon menu-icon'>
               <SVG src={toAbsoluteUrl('/media/svg/icons/Design/Adjust.svg')} />
             </span>
             <span className='menu-text'>Calendrier</span>
             <i className='menu-arrow' />
-          </NavLink>
-          <div className='menu-submenu '>
-            <i className='menu-arrow' />
-            <ul className='menu-subnav'>
-              <li className='menu-item  menu-item-parent' aria-haspopup='true'>
-                <span className='menu-link'>
-                  <span className='menu-text'>Calendrier</span>
-                </span>
-              </li>
-
-              {/*begin::2 Level*/}
-              <li
-                className={`menu-item ${getMenuItemActive(
-                  '/calendrier/option1'
-                )}`}
-                aria-haspopup='true'
-              >
-                <NavLink className='menu-link' to='/calendrier/option1'>
-                  <i className='menu-bullet menu-bullet-dot'>
-                    <span />
-                  </i>
-                  <span className='menu-text'>option 1 (à changer)</span>
-                </NavLink>
-              </li>
-              {/*end::2 Level*/}
-            </ul>
-          </div>
+          </p>
         </li>
-        {/*end::1 Level*/}
 
         {/* Tâches Pages */}
         {/*begin::1 Level*/}
@@ -366,7 +339,7 @@ export function AsideMenuList({ layoutProps }) {
           aria-haspopup='true'
           data-menu-toggle='hover'
         >
-          <NavLink className='menu-link menu-toggle' to='/taches'>
+          <p className='menu-link menu-toggle' to='/taches'>
             <span className='svg-icon menu-icon'>
               <SVG
                 src={toAbsoluteUrl(
@@ -376,31 +349,7 @@ export function AsideMenuList({ layoutProps }) {
             </span>
             <span className='menu-text'>Tâches</span>
             <i className='menu-arrow' />
-          </NavLink>
-          <div className='menu-submenu '>
-            <i className='menu-arrow' />
-            <ul className='menu-subnav'>
-              <li className='menu-item  menu-item-parent' aria-haspopup='true'>
-                <span className='menu-link'>
-                  <span className='menu-text'>Tâches</span>
-                </span>
-              </li>
-
-              {/*begin::2 Level*/}
-              <li
-                className={`menu-item ${getMenuItemActive('/taches/option1')}`}
-                aria-haspopup='true'
-              >
-                <NavLink className='menu-link' to='/taches/option1'>
-                  <i className='menu-bullet menu-bullet-dot'>
-                    <span />
-                  </i>
-                  <span className='menu-text'>option 1 (à changer)</span>
-                </NavLink>
-              </li>
-              {/*end::2 Level*/}
-            </ul>
-          </div>
+          </p>
         </li>
         {/*end::1 Level*/}
 
@@ -409,12 +358,12 @@ export function AsideMenuList({ layoutProps }) {
           className={`menu-item ${getMenuItemActive('/entraide', false)}`}
           aria-haspopup='true'
         >
-          <NavLink className='menu-link' to='/entraide'>
+          <p className='menu-link' to='/entraide'>
             <span className='svg-icon menu-icon'>
               <SVG src={toAbsoluteUrl('/media/svg/icons/Design/Eraser.svg')} />
             </span>
             <span className='menu-text'>Entraide</span>
-          </NavLink>
+          </p>
         </li>
         {/*end::1 Level*/}
 
@@ -428,7 +377,7 @@ export function AsideMenuList({ layoutProps }) {
           aria-haspopup='true'
           data-menu-toggle='hover'
         >
-          <NavLink className='menu-link menu-toggle' to='/entreprise'>
+          <p className='menu-link menu-toggle' to='/entreprise'>
             <span className='svg-icon menu-icon'>
               <SVG
                 src={toAbsoluteUrl('/media/svg/icons/Text/Bullet-list.svg')}
@@ -436,7 +385,7 @@ export function AsideMenuList({ layoutProps }) {
             </span>
             <span className='menu-text'>Entreprises</span>
             <i className='menu-arrow' />
-          </NavLink>
+          </p>
           <div className='menu-submenu '>
             <i className='menu-arrow' />
             <ul className='menu-subnav'>
@@ -453,9 +402,9 @@ export function AsideMenuList({ layoutProps }) {
                 )}`}
                 aria-haspopup='true'
               >
-                <NavLink className='menu-link' to='/allEntreprises/ajout'>
+                <p className='menu-link' to='/allEntreprises/ajout'>
                   <span className='menu-text'>Ajouter une entreprise</span>
-                </NavLink>
+                </p>
               </li>
               {/*end::2 Level*/}
 
@@ -466,9 +415,9 @@ export function AsideMenuList({ layoutProps }) {
                 )}`}
                 aria-haspopup='true'
               >
-                <NavLink className='menu-link' to='/allEntreprises/list'>
+                <p className='menu-link' to='/allEntreprises/list'>
                   <span className='menu-text'>Toutes les entreprises</span>
-                </NavLink>
+                </p>
               </li>
               {/*end::2 Level*/}
             </ul>
@@ -486,7 +435,7 @@ export function AsideMenuList({ layoutProps }) {
           aria-haspopup='true'
           data-menu-toggle='hover'
         >
-          <NavLink className='menu-link menu-toggle' to='/stages'>
+          <p className='menu-link ' to='/stages'>
             <span className='svg-icon menu-icon'>
               <SVG
                 src={toAbsoluteUrl('/media/svg/icons/Shopping/Chart-bar1.svg')}
@@ -494,39 +443,7 @@ export function AsideMenuList({ layoutProps }) {
             </span>
             <span className='menu-text'>Stages</span>
             <i className='menu-arrow' />
-          </NavLink>
-          <div className='menu-submenu '>
-            <i className='menu-arrow' />
-            <ul className='menu-subnav'>
-              <li className='menu-item  menu-item-parent' aria-haspopup='true'>
-                <span className='menu-link'>
-                  <span className='menu-text'>Stages</span>
-                </span>
-              </li>
-
-              {/*begin::2 Level*/}
-              <li
-                className={`menu-item ${getMenuItemActive('/stages/option1')}`}
-                aria-haspopup='true'
-              >
-                <NavLink className='menu-link' to='/stages/option1'>
-                  <span className='menu-text'>Option 1 - (à changer)</span>
-                </NavLink>
-              </li>
-              {/*end::2 Level*/}
-
-              {/*begin::2 Level*/}
-              <li
-                className={`menu-item ${getMenuItemActive('/stages/option2')}`}
-                aria-haspopup='true'
-              >
-                <NavLink className='menu-link' to='/stages/option2'>
-                  <span className='menu-text'>Option 2 - (à changer)</span>
-                </NavLink>
-              </li>
-              {/*end::2 Level*/}
-            </ul>
-          </div>
+          </p>  
         </li>
         {/*end::1 Level*/}
 
@@ -535,7 +452,7 @@ export function AsideMenuList({ layoutProps }) {
           className={`menu-item ${getMenuItemActive('/utilisateurs', false)}`}
           aria-haspopup='true'
         >
-          <NavLink className='menu-link' to='/utilisateurs'>
+          <p className='menu-link' to='/utilisateurs'>
             <span className='svg-icon menu-icon'>
               <SVG
                 src={toAbsoluteUrl(
@@ -544,7 +461,7 @@ export function AsideMenuList({ layoutProps }) {
               />
             </span>
             <span className='menu-text'>Utilisateurs</span>
-          </NavLink>
+          </p>
         </li>
         {/*end::1 Level*/}
 
@@ -553,12 +470,12 @@ export function AsideMenuList({ layoutProps }) {
           className={`menu-item ${getMenuItemActive('/programmes', false)}`}
           aria-haspopup='true'
         >
-          <NavLink className='menu-link' to='/programmes'>
+          <p className='menu-link' to='/programmes'>
             <span className='svg-icon menu-icon'>
               <SVG src={toAbsoluteUrl('/media/svg/icons/Design/Polygon.svg')} />
             </span>
             <span className='menu-text'>Programmes</span>
-          </NavLink>
+          </p>
         </li>
         {/*end::1 Level*/}
 
@@ -577,12 +494,12 @@ export function AsideMenuList({ layoutProps }) {
           className={`menu-item ${getMenuItemActive('/preferences', false)}`}
           aria-haspopup='true'
         >
-          <NavLink className='menu-link' to='/preferences'>
+          <p className='menu-link' to='/preferences'>
             <span className='svg-icon menu-icon'>
               <SVG src={toAbsoluteUrl('/media/svg/icons/General/User.svg')} />
             </span>
             <span className='menu-text'>Préférences</span>
-          </NavLink>
+          </p>
         </li>
         {/*end::1 Level*/}
 
@@ -591,14 +508,14 @@ export function AsideMenuList({ layoutProps }) {
           className={`menu-item ${getMenuItemActive('/outils', false)}`}
           aria-haspopup='true'
         >
-          <NavLink className='menu-link' to='/outils'>
+          <p className='menu-link' to='/outils'>
             <span className='svg-icon menu-icon'>
               <SVG
                 src={toAbsoluteUrl('/media/svg/icons/General/Settings-1.svg')}
               />
             </span>
             <span className='menu-text'>Outils</span>
-          </NavLink>
+          </p>
         </li>
         {/*end::1 Level*/}
 

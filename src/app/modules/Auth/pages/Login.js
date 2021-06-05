@@ -75,7 +75,7 @@ function Login(props) {
       setTimeout(() => {
         login(values.email, values.password)
           .then( response => {
-            console.log(response.data);
+            // console.log(response.data);
              
             //setsUser
             props.setUser(response.data.user);

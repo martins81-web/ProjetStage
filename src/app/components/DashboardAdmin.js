@@ -47,12 +47,12 @@ const DashboardAdmin = () => {
       getAllGroups()
         .then(reponse=> {
           setGroups(reponse.data);
-          console.log(reponse.data);
+          // console.log(reponse.data);
         })
     }
     getUsersListByRole('004')
     .then(reponse=> {
-      console.log(reponse.data);
+      // console.log(reponse.data);
     })
 
   }, [])
